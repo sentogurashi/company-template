@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["gulpfile.babel.js", "tasks/**"],
+        "optionalDependencies": false
+      }
+    ],
+    "max-len": ["error", { "code": 150 }]
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "Event": true,
+    "Image": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": true,
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.css": "scss",
+    ".babelrc": "json5"
+  },
+  "git.ignoreLimitWarning": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "prettier.singleQuote": true,
+  "prettier.disableLanguages": ["markdown"],
+  "emmet.includeLanguages": {
+    "ejs": "html"
+  },
+  "eslint.trace.server": "messages"
+}
