@@ -2,21 +2,17 @@ import gulp from 'gulp';
 import { browsersync, bsReload } from './browsersync';
 import script from './script';
 import style from './style';
+import yaml from './yaml';
+import template from './template';
 import pkg from '../package.json';
 
-const {
-  src: PATH_SRC, scripts: PATH_SCRIPTs, styles: PATH_STYLEs, templates: PATH_TEMPLATE,
-} = pkg.path;
+const { path: PATH } = pkg;
 
 const watchFiles = (done) => {
-  gulp.watch([`${PATH_SRC + PATH_STYLEs}/**/*.scss`], gulp.series(style, bsReload));
-  gulp.watch([`${PATH_SRC + PATH_SCRIPTs}/**/*.js`], gulp.series(script, bsReload));
-  // gulp.watch([`${pkg.path.src + pkg.path.templates}/**/*.ejs`], () =>
-  //   runSequence('template', 'browsersync-reload')
-  // );
-  // gulp.watch('./page.yaml', () =>
-  //   runSequence('yaml', 'template', 'browsersync-reload')
-  // );
+  gulp.watch([`${PATH.SRC + PATH.STYLES}/**/*.scss`], gulp.series(style, bsReload));
+  gulp.watch([`${PATH.SRC + PATH.SCRIPTS}/**/*.js`], gulp.series(script, bsReload));
+  gulp.watch([`${PATH.SRC + PATH.TEMPLATES}/**/*.ejs`], gulp.series(template, bsReload));
+  gulp.watch([`${PATH.DATA}**/*.yml`], gulp.series(yaml, template, bsReload));
   done();
 };
 

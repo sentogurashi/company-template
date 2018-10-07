@@ -3,20 +3,20 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 
 import pkg from '../package.json';
 
-const { data: PATH_DATA } = pkg.path;
+const { path: PATH } = pkg;
 
 const $ = gulpLoadPlugins();
 
 const yaml = (done) => {
   gulp
-    .src(`${PATH_DATA}**/*.yml`)
+    .src(`${PATH.DATA}/**/*.yml`)
     .pipe($.plumber())
     .pipe(
       $.yaml({
         space: 2,
       }),
     )
-    .pipe(gulp.dest(PATH_DATA));
+    .pipe(gulp.dest(PATH.DATA));
   done();
 };
 

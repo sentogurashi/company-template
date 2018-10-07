@@ -1,12 +1,10 @@
 import del from 'del';
 import pkg from '../package.json';
 
-const {
-  dest, styles, scripts, templates,
-} = pkg.path;
+const { path: PATH } = pkg;
 
 const clean = (done) => {
-  del([dest + styles, dest + scripts, dest + templates]);
+  del([PATH.DEST + PATH.STYLES, PATH.DEST + PATH.SCRIPTS, PATH.DEST + PATH.TEMPLATES]);
   done();
 };
 

@@ -3,9 +3,7 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import fs from 'fs';
 import pkg from '../package.json';
 
-const {
-  src: PATH_SRC, dest: PATH_DEST, templates: PATH_TEMPLATE, data: PATH_DATA,
-} = pkg.path;
+const { path: PATH } = pkg;
 
 const FILENAME = {
   CONTENT: 'content.json',
@@ -17,11 +15,11 @@ const $ = gulpLoadPlugins();
 const readJsonSync = path => JSON.parse(fs.readFileSync(path, 'utf-8'));
 
 const templateStatic = (done) => {
-  const sitedata = readJsonSync(PATH_DATA + FILENAME.CONTENT);
-  const memberData = readJsonSync(PATH_DATA + FILENAME.MEMBER);
-  const projectData = readJsonSync(PATH_DATA + FILENAME.PROJECT);
+  const sitedata = readJsonSync(PATH.DATA + FILENAME.CONTENT);
+  const memberData = readJsonSync(PATH.DATA + FILENAME.MEMBER);
+  const projectData = readJsonSync(PATH.DATA + FILENAME.PROJECT);
   gulp
-    .src([`${PATH_SRC + PATH_TEMPLATE}/**/*.ejs`, `!${PATH_SRC + PATH_TEMPLATE}/**/_*.ejs`])
+    .src([`${PATH.SRC + PATH.TEMPLATES}/**/*.ejs`, `!${PATH.SRC + PATH.TEMPLATES}/**/_*.ejs`])
 
     .pipe($.plumber())
     .pipe($.ejs({ sitedata, memberData, projectData }, {}, { ext: '.html' }))
@@ -32,18 +30,18 @@ const templateStatic = (done) => {
         unformatted: ['strong', 'em', 'span', '%'],
       }),
     )
-    .pipe(gulp.dest(`${PATH_DEST + PATH_TEMPLATE}`));
+    .pipe(gulp.dest(`${PATH.DEST + PATH.TEMPLATES}`));
 
   done();
 };
 
 const templateProject = (done) => {
-  const sitedata = readJsonSync(PATH_DATA + FILENAME.CONTENT);
-  const memberData = readJsonSync(PATH_DATA + FILENAME.MEMBER);
-  const projectData = readJsonSync(PATH_DATA + FILENAME.PROJECT);
+  const sitedata = readJsonSync(PATH.DATA + FILENAME.CONTENT);
+  const memberData = readJsonSync(PATH.DATA + FILENAME.MEMBER);
+  const projectData = readJsonSync(PATH.DATA + FILENAME.PROJECT);
   projectData.forEach((projectInfo) => {
     gulp
-      .src([`${PATH_SRC + PATH_TEMPLATE}/project/_template.ejs`])
+      .src([`${PATH.SRC + PATH.TEMPLATES}/project/_template.ejs`])
       .pipe($.plumber())
       .pipe($.rename(projectInfo.id))
       .pipe(
@@ -65,7 +63,7 @@ const templateProject = (done) => {
           unformatted: ['strong', 'em', 'span', '%'],
         }),
       )
-      .pipe(gulp.dest(`${PATH_DEST + PATH_TEMPLATE}/project`));
+      .pipe(gulp.dest(`${PATH.DEST + PATH.TEMPLATES}/project`));
   });
 
   done();
