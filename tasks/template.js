@@ -1,36 +1,30 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import fs from 'fs';
-import es from 'event-stream';
 import pkg from '../package.json';
 
 const {
-  src: pathSrc, dest: pathDest, templates: pathTemplates, data: pathData,
+  src: PATH_SRC, dest: PATH_DEST, templates: PATH_TEMPLATE, data: PATH_DATA,
 } = pkg.path;
-const contentFileName = 'content.json';
-const projectFileName = 'project.json';
-const memberFileName = 'member.json';
+
+const FILENAME = {
+  CONTENT: 'content.json',
+  PROJECT: 'project.json',
+  MEMBER: 'member.json',
+};
 
 const $ = gulpLoadPlugins();
-const STRING_UTF8 = 'utf-8';
+const readJsonSync = path => JSON.parse(fs.readFileSync(path, 'utf-8'));
 
 const templateStatic = (done) => {
-  const sitedata = JSON.parse(fs.readFileSync(`${pathData + contentFileName}`, STRING_UTF8));
+  const sitedata = readJsonSync(PATH_DATA + FILENAME.CONTENT);
+  const memberData = readJsonSync(PATH_DATA + FILENAME.MEMBER);
+  const projectData = readJsonSync(PATH_DATA + FILENAME.PROJECT);
   gulp
-    .src([`${pathSrc + pathTemplates}/**/*.ejs`, `!${pathSrc + pathTemplates}/**/_*.ejs`])
+    .src([`${PATH_SRC + PATH_TEMPLATE}/**/*.ejs`, `!${PATH_SRC + PATH_TEMPLATE}/**/_*.ejs`])
 
     .pipe($.plumber())
-    .pipe(
-      $.ejs(
-        {
-          sitedata,
-        },
-        {},
-        {
-          ext: '.html',
-        },
-      ),
-    )
+    .pipe($.ejs({ sitedata, memberData, projectData }, {}, { ext: '.html' }))
     .pipe(
       $.htmlBeautify({
         indent_size: 2,
@@ -38,39 +32,44 @@ const templateStatic = (done) => {
         unformatted: ['strong', 'em', 'span', '%'],
       }),
     )
-    .pipe(gulp.dest(`${pathDest + pathTemplates}`));
+    .pipe(gulp.dest(`${PATH_DEST + PATH_TEMPLATE}`));
 
   done();
 };
 
-// gulp.task('template:generate', () => {
-//   const sitedata = JSON.parse(fs.readFileSync(sitedataPath, STRING_UTF8));
+const templateProject = (done) => {
+  const sitedata = readJsonSync(PATH_DATA + FILENAME.CONTENT);
+  const memberData = readJsonSync(PATH_DATA + FILENAME.MEMBER);
+  const projectData = readJsonSync(PATH_DATA + FILENAME.PROJECT);
+  projectData.forEach((projectInfo) => {
+    gulp
+      .src([`${PATH_SRC + PATH_TEMPLATE}/project/_template.ejs`])
+      .pipe($.plumber())
+      .pipe($.rename(projectInfo.id))
+      .pipe(
+        $.ejs(
+          {
+            sitedata,
+            memberData,
+            projectData,
+            projectInfo,
+          },
+          {},
+          { ext: '.html' },
+        ),
+      )
+      .pipe(
+        $.htmlBeautify({
+          indent_size: 2,
+          max_preserve_newlines: 0,
+          unformatted: ['strong', 'em', 'span', '%'],
+        }),
+      )
+      .pipe(gulp.dest(`${PATH_DEST + PATH_TEMPLATE}/project`));
+  });
 
-//   return es.merge(
-//     sitedata.pages.feature.map((page) => {
-//       const stream = gulp
-//         .src([`${templatePath}feature/_template.ejs`])
-//         .pipe($.plumber())
-//         .pipe($.rename(page.id))
-//         .pipe(
-//           $.ejs(
-//             {
-//               page,
-//               sitedata,
-//             },
-//             {},
-//             {
-//               ext: '.html',
-//             },
-//           ),
-//         )
-//         .pipe($.replace('\n\n', '\n'))
-//         .pipe(gulp.dest(`${dest}html/feature`));
+  done();
+};
 
-//       return stream;
-//     }),
-//   );
-// });
-
-const template = gulp.series(templateStatic);
+const template = gulp.series(templateStatic, templateProject);
 export default template;

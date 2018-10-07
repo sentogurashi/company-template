@@ -5,12 +5,12 @@ import style from './style';
 import pkg from '../package.json';
 
 const {
-  src: pathSrc, scripts: pathScripts, styles: pathStyles, templates: pathTemplates,
+  src: PATH_SRC, scripts: PATH_SCRIPTs, styles: PATH_STYLEs, templates: PATH_TEMPLATE,
 } = pkg.path;
 
 const watchFiles = (done) => {
-  gulp.watch([`${pathSrc + pathStyles}/**/*.scss`], gulp.series(style, bsReload));
-  gulp.watch([`${pathSrc + pathScripts}/**/*.js`], gulp.series(script, bsReload));
+  gulp.watch([`${PATH_SRC + PATH_STYLEs}/**/*.scss`], gulp.series(style, bsReload));
+  gulp.watch([`${PATH_SRC + PATH_SCRIPTs}/**/*.js`], gulp.series(script, bsReload));
   // gulp.watch([`${pkg.path.src + pkg.path.templates}/**/*.ejs`], () =>
   //   runSequence('template', 'browsersync-reload')
   // );

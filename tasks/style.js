@@ -7,13 +7,13 @@ import cssnano from 'gulp-cssnano';
 import pkg from '../package.json';
 
 const { browsers } = pkg;
-const { src: pathSrc, dest: pathDest, styles: pathStyles } = pkg.path;
+const { src: PATH_SRC, dest: PATH_DEST, styles: PATH_STYLEs } = pkg.path;
 
 const $ = gulpLoadPlugins();
 
 const style = (done) => {
   gulp
-    .src(`${pathSrc + pathStyles}/**/*.scss`)
+    .src(`${PATH_SRC + PATH_STYLEs}/**/*.scss`)
     .pipe($.plumber())
     .pipe($.sass())
     .pipe(
@@ -25,7 +25,7 @@ const style = (done) => {
       ]),
     )
     .pipe(cssnano())
-    .pipe(gulp.dest(pathDest + pathStyles));
+    .pipe(gulp.dest(PATH_DEST + PATH_STYLEs));
   done();
 };
 
