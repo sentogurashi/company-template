@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>common/ico_web</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="A4" transform="translate(-161.000000, -306.000000)" fill="#4A4A4A" fill-rule="nonzero">
+            <g id="common/ico_web" transform="translate(161.000000, 306.000000)">
+                <path d="M12.838,8.177 L12.838,10.785 C12.838,11.916 11.913,12.842 10.782,12.842 L4.381,12.842 C3.25,12.842 2.324,11.916 2.324,10.785 L2.324,4.384 C2.324,3.253 3.25,2.328 4.381,2.328 L6.989,2.328 L6.989,0.566 L4.381,0.566 C2.275,0.566 0.562,2.279 0.562,4.384 L0.562,10.785 C0.562,12.89 2.274,14.603 4.381,14.603 L10.782,14.603 C12.887,14.603 14.6,12.89 14.6,10.785 L14.6,8.177 L12.838,8.177 Z" id="Shape"></path>
+                <path d="M13.567,0.562 L9.078,0.562 C8.508,0.562 8.371,0.892 8.774,1.295 L10.699,3.22 L6.697,7.223 C6.353,7.567 6.353,8.125 6.697,8.469 C6.869,8.641 7.094,8.727 7.32,8.727 C7.546,8.727 7.772,8.641 7.943,8.469 L11.947,4.467 L13.872,6.392 C14.275,6.795 14.604,6.658 14.604,6.088 L14.604,1.599 C14.604,1.029 14.137,0.562 13.567,0.562 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

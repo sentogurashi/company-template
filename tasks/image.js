@@ -8,10 +8,8 @@ import pkg from '../package.json';
 const $ = gulpLoadPlugins();
 const { path: PATH } = pkg;
 
-const imageClean = (done) => {
-  del([`${PATH.DEST + PATH.IMAGES}/*`]);
-  done();
-};
+// delは非同期終了するため、delで得られるpromiseを返す
+const imageClean = () => del([`${PATH.DEST + PATH.IMAGES}/*`]);
 
 const imageOptimize = (done) => {
   gulp
@@ -30,7 +28,7 @@ const imageOptimize = (done) => {
         },
       ),
     )
-    .pipe(gulp.dest(`${PATH.DEST + PATH.IMAGES}`));
+    .pipe(gulp.dest(PATH.DEST + PATH.IMAGES));
 
   done();
 };

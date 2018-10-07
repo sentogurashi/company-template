@@ -4,11 +4,12 @@ import script from './tasks/script';
 import style from './tasks/style';
 import yaml from './tasks/yaml';
 import template from './tasks/template';
+import sketch from './tasks/sketch';
 import clean from './tasks/clean';
 import watch from './tasks/watch';
 
 export {
-  image, script, style, yaml, template, clean, watch,
+  image, script, style, yaml, template, sketch, clean, watch,
 };
 
 export const generate = gulp.series(clean, image, script, style, yaml, template);

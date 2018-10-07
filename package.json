@@ -55,7 +55,8 @@
     "STYLES": "styles",
     "SCRIPTS": "scripts",
     "TEMPLATES": "templates",
-    "IMAGES": "images"
+    "IMAGES": "images",
+    "SKETCHS": "sketchs"
   },
   "browsers": [
     "iOS >= 8.0",
