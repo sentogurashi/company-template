@@ -1,8 +1,13 @@
 .Module {
-  margin-bottom: 100px;
+  margin-bottom: $spacing-big-middle;
+
+  &--top {
+    margin-top: $spacing-big-middle;
+  }
 
   &__gridListContainer {
     width: $width-responsive-wrapper;
+    max-width: $width-max-responsive-wrapper;
     margin: 0 auto;
   }
 
@@ -12,7 +17,7 @@
 
   &__button {
     width: 300px;
-    margin: $spacing-XXXLarge auto;
+    margin: $spacing-big-normal auto;
   }
 
   @include isScreen('sm') {

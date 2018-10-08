@@ -5,8 +5,8 @@
 
   &--large {
     grid-template-columns: repeat(auto-fit, 45%);
-    grid-gap: $spacing-XLarge $spacing-large;
-    gap: $spacing-XLarge $spacing-large;
+    grid-gap: $spacing-XXXLarge $spacing-XLarge;
+    gap: $spacing-XXXLarge $spacing-XLarge;
 
     @include isScreen('sm') {
       display: block;

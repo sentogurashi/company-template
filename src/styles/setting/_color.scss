@@ -4,6 +4,7 @@
 $color-black: #000;
 $color-dark-gray: rgba($color-black, 0.85);
 $color-light-gray: rgba($color-black, 0.4);
+$color-pale-gray: #f2f2f2;
 $color-white: #fff;
 // $color-darkgray: #4a4a4a;
 
@@ -17,5 +18,5 @@ $color-text-link: $color-dark-gray;
 $color-text-link-hover: rgba($color-black, 0.6);
 
 $color-header-background: $color-white;
-
 $color-button-background: $color-white;
+$color-thumbnail-background: $color-pale-gray;

@@ -13,28 +13,34 @@ const contentHisotry = findContentById('history');
 
 <div class="TopHero">
   <div class="TopHero__main">
-    <div class="TopHero__vi">
-      <div class="TopHero__viLogo"></div>
-      <div class="TopHero__viText"></div>
+    <div class="TopHero__mainContent">
+      <div class="TopHero__vi">
+        <div class="TopHero__viLogo"></div>
+        <div class="TopHero__viType"></div>
+      </div>
+      <nav class="TopHero__navigation">
+        <ul class="TopHero__navigationList">
+          <% sitedata.common.layout.navigation.forEach((item) => { %>
+            <li class="TopHero__navigationItem">
+              <a href="<%= item.path %>"><%= item.text %></a>
+            </li>
+          <% }); %>
+        </ul>
+      </nav>
     </div>
-    <nav class="TopHero__navigation">
-      <ul class="TopHero__navigationList">
-        <% sitedata.common.layout.navigation.forEach((item) => { %>
-          <li class="TopHero__navationItem">
-            <a href="<%= item.path %>"><%= item.text %></a>
-          </li>
-        <% }); %>
-      </ul>
-    </nav>
+    <!-- /.TopHero__mainContent -->
   </div>
-  <div class="TopHero__cover js-TopHero__cover">
-    <div class="TopHero__image js-TopHero__image"></div>
+  <!-- /.TopHero__main -->
+  <div class="TopHero__sub">
+    <div class="TopHero__cover js-TopHero__cover">
+      <div class="TopHero__image js-TopHero__image"></div>
+    </div>
   </div>
-<div>
+</div>
 <!-- /.TopHero -->
 
-<section class="Module">
-  <article class="Article Article--withColumn">
+<section class="Module Module--top">
+  <article class="Article Article Article--withColumn">
     <div class="Article__headingContainer">
       <%- include('./_include/_component/_heading', {
         setting: {

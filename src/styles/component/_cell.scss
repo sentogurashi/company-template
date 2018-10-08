@@ -3,8 +3,8 @@
 
   &__thumbnail {
     padding-bottom: $size-normal-thumbnail;
-    background: #f2f2f2; // TODO
-    background-position: center center;
+    background: $color-pale-gray;
+    background-position: center;
     background-size: cover;
   }
 

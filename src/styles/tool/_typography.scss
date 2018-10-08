@@ -29,3 +29,8 @@
     color: $color-text-link-hover;
   }
 }
+
+@mixin verticalWriting {
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}

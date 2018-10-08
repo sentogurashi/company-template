@@ -7,7 +7,6 @@
   }
 
   &--vertical {
-    -ms-writing-mode: tb-rl;
-    writing-mode: vertical-rl;
+    @include verticalWriting;
   }
 }

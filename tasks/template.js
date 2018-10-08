@@ -46,7 +46,7 @@ const templateStatic = (done) => {
         }),
       )
       .pipe($.htmlhint())
-      // .pipe($.htmlhint.reporter())
+      .pipe($.htmlhint.reporter())
       .pipe(gulp.dest(`${PATH.DEST + PATH.TEMPLATES}/${directory}`));
   });
 
@@ -83,7 +83,7 @@ const templateProject = (done) => {
         }),
       )
       .pipe($.htmlhint())
-      // .pipe($.htmlhint.reporter())
+      .pipe($.htmlhint.reporter())
       .pipe(gulp.dest(`${PATH.DEST + PATH.TEMPLATES}/project/${projectInfo.id}`));
   });
 
