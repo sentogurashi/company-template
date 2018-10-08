@@ -1,0 +1,15 @@
+.LoadingView {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $layer-loadingview;
+  background-color: $color-header-background;
+  opacity: 1;
+  transition: 0.8s ease;
+
+  &.is-fade {
+    opacity: 0;
+  }
+}

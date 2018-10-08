@@ -3,6 +3,7 @@
 <html lang="ja">
 <%- include ./_head %>
 <body>
+  <div class="LoadingView js-LoadingView"></div>
   <div class="Container<%= isTop? '' : ' Container--withOffset' %>">
     <%- include ./_header %>
     <%- insertContent(__output) %>
