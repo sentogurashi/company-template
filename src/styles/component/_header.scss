@@ -19,7 +19,7 @@
     opacity: 1;
   }
 
-  @include in-screen('sm') {
+  @include isScreen('sm') {
     padding: $spacing-normal;
   }
 
@@ -30,7 +30,7 @@
 
     @include vectorImage('common/vi_logo');
 
-    @include in-screen('sm') {
+    @include isScreen('sm') {
       width: 40px;
       height: 40px;
     }

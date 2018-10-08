@@ -78,6 +78,7 @@ const contentHisotry = findContentById('history');
       <% }); %>
     </ul>
   </div>
+  <!-- /.Module__gridListContaier -->
 </section>
 <!-- /.Module -->
 
@@ -88,24 +89,28 @@ const contentHisotry = findContentById('history');
       classNames: ['Module__heading'],
     }
   }) %>
-  <ul class="GridList GridList--small">
-    <% memberdata.slice(0, 8).forEach((profile) => { %>
-      <li class="GridList__item">
-        <a class="Profile" href="/member/#<%= profile.name_id %>">
-          <div class="Profile__photo"></div>
-          <p class="Profile__name"><%= profile.name_jp %></p>
-          <div class="Profile__title">
-            <% if (profile.position) { %>
-            <p class="Profile__position"><%= profile.position %></p>
-            <% } %>
-            <% if (profile.profession) { %>
-            <p class="Profile__profession"><%= profile.profession %></p>
-            <% } %>
-        </div>
-        </a>
-      </li>
-    <% }); %>
-  </ul>
+
+  <div class="Module__gridListContainer">
+    <ul class="GridList GridList--small">
+      <% memberdata.slice(0, 8).forEach((profile) => { %>
+        <li class="GridList__item">
+          <a class="Profile Profile--vertical" href="/member/#<%= profile.name_id %>">
+            <div class="Profile__photo"></div>
+            <p class="Profile__name"><%= profile.name_jp %></p>
+            <div class="Profile__title">
+              <% if (profile.position) { %>
+              <p class="Profile__position"><%= profile.position %></p>
+              <% } %>
+              <% if (profile.profession) { %>
+              <p class="Profile__profession"><%= profile.profession %></p>
+              <% } %>
+          </div>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+  <!-- /.Module__gridListContaier -->
   <%- include('./_include/_component/_button', {
     setting: {
       label: contentMember.button.label,

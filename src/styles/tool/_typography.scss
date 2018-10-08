@@ -5,7 +5,7 @@
   line-height: $line-height-base;
   letter-spacing: $letter-spacing-wide;
 
-  @include in-screen('sm') {
+  @include isScreen('sm') {
     font-size: $font-size-base-small-screen;
   }
 }
@@ -16,7 +16,7 @@
   font-family: $font-family-display;
   line-height: $line-height-base;
 
-  @include in-screen('sm') {
+  @include isScreen('sm') {
     font-size: $font-size-XLarge-small-screen;
   }
 }

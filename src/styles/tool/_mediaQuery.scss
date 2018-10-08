@@ -6,7 +6,7 @@ $breakpoints: (
   'xl': 'screen and (min-width: 1600px)'
 ) !default;
 
-@mixin in-screen($breakpoint: sm) {
+@mixin isScreen($breakpoint: sm) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }

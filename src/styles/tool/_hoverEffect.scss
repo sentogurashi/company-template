@@ -1,0 +1,11 @@
+@mixin hoverEffect {
+  transition: $transition-hover;
+
+  &:hover {
+    opacity: $opacity-hover;
+
+    @include isScreen('sm') {
+      opacity: 1;
+    }
+  }
+}

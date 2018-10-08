@@ -15,7 +15,7 @@
   &__line {
     display: inline-block;
 
-    @include in-screen('sm') {
+    @include isScreen('sm') {
       display: inline;
 
       &::after {

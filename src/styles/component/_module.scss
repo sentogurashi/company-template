@@ -1,5 +1,5 @@
 .Module {
-  margin-bottom: $spacing-XXXLarge;
+  margin-bottom: 100px;
 
   &__gridListContainer {
     width: $width-responsive-wrapper;
@@ -12,9 +12,10 @@
 
   &__button {
     width: 300px;
+    margin: $spacing-XXXLarge auto;
   }
 
-  @include in-screen('sm') {
+  @include isScreen('sm') {
     margin-right: $spacing-large;
     margin-left: $spacing-large;
 

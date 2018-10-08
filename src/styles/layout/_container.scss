@@ -2,7 +2,7 @@
   &--withOffset {
     padding-top: 80px; // TODO
 
-    @include in-screen('sm') {
+    @include isScreen('sm') {
       padding-top: 60px; // TODO
     }
   }

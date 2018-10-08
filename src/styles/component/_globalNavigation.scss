@@ -14,7 +14,7 @@
       }
     }
 
-    @include in-screen('sm') {
+    @include isScreen('sm') {
       display: none;
     }
   }

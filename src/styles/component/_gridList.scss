@@ -8,14 +8,24 @@
     grid-gap: $spacing-XLarge $spacing-large;
     gap: $spacing-XLarge $spacing-large;
 
-    @include in-screen('sm') {
+    @include isScreen('sm') {
       display: block;
     }
 
     .GridList__item {
-      @include in-screen('sm') {
+      @include isScreen('sm') {
         margin-bottom: $spacing-XLarge;
       }
+    }
+  }
+
+  &--small {
+    grid-template-columns: repeat(auto-fit, 25%);
+    grid-gap: $spacing-XXLarge 0;
+    gap: $spacing-XXLarge 0;
+
+    @include isScreen('sm') {
+      grid-template-columns: repeat(auto-fit, 50%);
     }
   }
 }

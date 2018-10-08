@@ -27,7 +27,7 @@
         height: 15px;
       }
 
-      @include in-screen('sm') {
+      @include isScreen('sm') {
         display: none;
       }
     }

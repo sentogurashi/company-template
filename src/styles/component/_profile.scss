@@ -1,0 +1,58 @@
+.Profile {
+  display: block;
+
+  &--vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Profile__name {
+      margin: $spacing-normal 0;
+    }
+  }
+
+  &__photo {
+    width: 160px;
+    height: 160px;
+    background: #f2f2f2; // TODO
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+
+    @include isScreen('lg') {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include isScreen('sm') {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  &__name {
+    color: $color-text-base;
+    font-size: $font-size-middle-normal-screen;
+    font-family: $font-family-display;
+  }
+
+  &__title {
+    display: flex;
+    color: $color-text-weak;
+    font-size: $font-size-small-normal-screen;
+  }
+
+  &__position {
+    margin-right: $spacing-normal;
+
+    &::after {
+      display: inline-block;
+      margin-left: $spacing-normal;
+      content: '/';
+    }
+  }
+}
+
+a.Profile {
+  @include hoverEffect;
+}
