@@ -1,0 +1,27 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $layer-header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-normal $spacing-large;
+  background-color: $color-header-background;
+  box-shadow: $box-shadow-header;
+
+  &__logo {
+    display: block;
+    width: 60px;
+    height: 60px;
+
+    @include vectorImage('common/vi_logo');
+  }
+
+  &__column {
+    &Sub {
+      display: flex;
+    }
+  }
+}

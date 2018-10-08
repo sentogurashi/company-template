@@ -1,0 +1,35 @@
+.SocialLinks {
+  &__item {
+    &--twitter a {
+      @include vectorImage('common/ico_twitter');
+    }
+
+    &--facebook a {
+      @include vectorImage('common/ico_facebook');
+    }
+  }
+
+  &--pc {
+    display: flex;
+    align-items: center;
+    margin-right: $spacing-large;
+
+    .SocialLinks__item {
+      margin-right: $spacing-large;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      & > a {
+        display: block;
+        width: 15px;
+        height: 15px;
+      }
+
+      @include in-screen('sm') {
+        display: none;
+      }
+    }
+  }
+}

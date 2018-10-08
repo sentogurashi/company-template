@@ -6,7 +6,9 @@ const facebookLink = getSocialLink('facebook');
 %>
 <header class="Header">
   <div class="Header__columnMain">
-    <h1 class="Header__logo"></h1>
+    <a class="Header__logo" href="/">
+      <h1>銭湯ぐらし</h1>
+    </a>
   </div>
   <div class="Header__columnSub">
     <nav class="GrobalNavigationPc">
@@ -18,9 +20,9 @@ const facebookLink = getSocialLink('facebook');
         <% }); %>
       </ul>
     </nav>
-    <ul class="SocialLinks">
-      <li class="SocialLinks__item SocialLinks__item--twitter"><a href="<%= twitterLink.url %>"><%= twitterLink.id %></a></li>
-      <li class="SocialLinks__item SocialLinks__item--facebook"><a href="<%= facebookLink.url %>"><%= facebookLink.id %></a></li>
+    <ul class="SocialLinks SocialLinks--pc">
+      <li class="SocialLinks__item SocialLinks__item--twitter"><a href="<%= twitterLink.url %>" target="_blank"><%= twitterLink.id %></a></li>
+      <li class="SocialLinks__item SocialLinks__item--facebook"><a href="<%= facebookLink.url %>" target="_blank"><%= facebookLink.id %></a></li>
     </ul>
     <div class="GrobalNavigationSp__trigger js-GrobalNavigationSp__trigger"></div>
   </div>

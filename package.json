@@ -78,6 +78,7 @@
     "script": "gulp script",
     "generate": "gulp generate",
     "style": "gulp style",
+    "sketch": "gulp sketch",
     "watch": "gulp watch"
   }
 }

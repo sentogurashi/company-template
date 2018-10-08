@@ -1,0 +1,21 @@
+.GrobalNavigation {
+  &Pc {
+    &__list {
+      display: flex;
+    }
+
+    &__item {
+      margin-right: $spacing-XLarge;
+
+      & > a {
+        @include baseLink;
+
+        font-family: $font-family-display;
+      }
+    }
+
+    @include in-screen('sm') {
+      display: none;
+    }
+  }
+}

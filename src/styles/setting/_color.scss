@@ -2,16 +2,20 @@
   1. abstract color
 */
 $color-black: #000;
+$color-dark-gray: rgba($color-black, 0.85);
+$color-light-gray: rgba($color-black, 0.4);
 $color-white: #fff;
 // $color-darkgray: #4a4a4a;
 
 /*
   2 UI color
 */
-$color-text-base: $color-black;
-$color-text-strong: $color-black;
-$color-text-weak: rgba($color-black, 0.4);
-$color-text-link: $color-black;
+$color-text-base: $color-dark-gray;
+$color-text-strong: $color-dark-gray;
+$color-text-weak: $color-light-gray;
+$color-text-link: $color-dark-gray;
 $color-text-link-hover: rgba($color-black, 0.6);
+
+$color-header-background: $color-white;
 
 $color-button-background: $color-white;
