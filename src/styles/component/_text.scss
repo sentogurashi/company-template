@@ -11,4 +11,16 @@
       margin-bottom: 0;
     }
   }
+
+  &__line {
+    display: inline-block;
+
+    @include in-screen('sm') {
+      display: inline;
+
+      &::after {
+        content: '　';
+      }
+    }
+  }
 }

@@ -2,10 +2,14 @@
 const {
   text = '',
   classNames = [],
+  ignoreBreakInSp = false,
 } = setting;
-const classNameArray = ['Text', ...classNames];
+let classNameArray = ['Text', ...classNames];
+// if (ignoreBreakInSp) classNameArray.push('Text--ignoreBreakInSp');
 const textElement = text.split('\n\n').map(line => 
-`<p class="Text__paragraph">${line.replace(/\n/g, '<br>')}</p>`).join('');
+`<p class="Text__paragraph">${
+  ignoreBreakInSp ? line.split('\n').map(subLine => `<span class="Text__line">${ subLine }</span>`).join('') : line.replace(/\n/g, '<br>')
+}</p>`).join('');
 %>
 <div class="<%= classNameArray.join(' '); %>">
 <%- textElement %>

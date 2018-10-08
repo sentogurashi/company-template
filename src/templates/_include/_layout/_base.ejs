@@ -1,8 +1,9 @@
+<% const isTop = pageInfo.id === 'top'; %>
 <!DOCTYPE html>
 <html lang="ja">
 <%- include ./_head %>
 <body>
-  <div class="Container">
+  <div class="Container<%= isTop? '' : ' Container--withOffset' %>">
     <%- include ./_header %>
     <%- insertContent(__output) %>
     <%- include ./_footer %>

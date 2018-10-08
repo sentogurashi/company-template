@@ -11,6 +11,11 @@
       display: flex;
       justify-content: center;
       width: 180px;
+
+      @include in-screen('sm') {
+        width: 100%;
+        margin-bottom: $spacing-XLarge;
+      }
     }
   }
 }

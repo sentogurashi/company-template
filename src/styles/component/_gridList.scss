@@ -11,5 +11,11 @@
     @include in-screen('sm') {
       display: block;
     }
+
+    .GridList__item {
+      @include in-screen('sm') {
+        margin-bottom: $spacing-XLarge;
+      }
+    }
   }
 }

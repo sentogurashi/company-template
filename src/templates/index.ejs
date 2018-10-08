@@ -49,6 +49,7 @@ const contentHisotry = findContentById('history');
       <%- include('./_include/_component/_text', {
         setting: {
           text: contentMain.text,
+          ignoreBreakInSp: true,
         }
       }) %>
     </div>
@@ -58,7 +59,7 @@ const contentHisotry = findContentById('history');
 </section>
 <!-- /.Module -->
 
-<section class="Module">
+<section class="Module js-headerShowLine">
   <%- include('./_include/_component/_heading', {
     setting: {
       text: contentProject.heading,

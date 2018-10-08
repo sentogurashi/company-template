@@ -1,5 +1,4 @@
 <% 
-const isTop = pageInfo.id === 'top';
 const title = isTop ? pageInfo.title : `${pageInfo.title} - 銭湯ぐらし`; %>
 <head>
 <meta charset="UTF-8">
@@ -25,6 +24,9 @@ const title = isTop ? pageInfo.title : `${pageInfo.title} - 銭湯ぐらし`; %>
 <meta property="og:type" content="article"/>
 <% } %>
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/hannari.css">
-<link rel="stylesheet" href="../styles/main.css">
-<script src="../scripts/common.bundle.js"></script>
+<link rel="stylesheet" href="/dest/styles/main.css">
+<script src="/dest/scripts/common.bundle.js"></script>
+<% if(isTop) { %>
+<script src="/dest/scripts/top.bundle.js"></script>
+<% } %>
 </head>

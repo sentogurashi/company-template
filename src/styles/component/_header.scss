@@ -10,6 +10,18 @@
   padding: $spacing-normal $spacing-large;
   background-color: $color-header-background;
   box-shadow: $box-shadow-header;
+  visibility: hidden;
+  opacity: 0;
+  transition: $transition-show;
+
+  &.is-show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include in-screen('sm') {
+    padding: $spacing-normal;
+  }
 
   &__logo {
     display: block;
@@ -17,6 +29,11 @@
     height: 60px;
 
     @include vectorImage('common/vi_logo');
+
+    @include in-screen('sm') {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &__column {

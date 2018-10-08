@@ -7,6 +7,7 @@ const config = {
   mode: 'production',
   entry: {
     common: `${PATH.SRC}${PATH.SCRIPTS}/common.js`,
+    top: `${PATH.SRC}${PATH.SCRIPTS}/top.js`,
   },
   output: {
     filename: '[name].bundle.js',
