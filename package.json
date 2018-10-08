@@ -82,6 +82,8 @@
     "generate": "gulp generate",
     "style": "gulp style",
     "sketch": "gulp sketch",
+    "build": "gulp build",
+    "deploy:surge": "surge build/",
     "watch": "gulp watch"
   }
 }
