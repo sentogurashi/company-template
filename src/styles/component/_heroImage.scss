@@ -1,6 +1,10 @@
 .HeroImage {
   height: 70vh;
 
+  @include isScreen('sm') {
+    height: 50vh;
+  }
+
   &__inner {
     width: 100%;
     height: 100%;

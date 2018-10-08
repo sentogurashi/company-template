@@ -29,14 +29,15 @@
   }
 
   &__horizontalList {
-    display: flex;
-    justify-content: center;
     margin: $spacing-XXLarge 0;
+    text-align: center;
 
     &Item {
       @include baseFontWeak;
 
-      margin-right: $spacing-normal;
+      display: inline-block;
+      margin-right: $spacing-small; // スキマ分
+      line-height: $line-height-thick;
 
       &::after {
         content: '/';
