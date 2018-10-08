@@ -1,0 +1,16 @@
+.Article {
+  &--withColumn {
+    display: flex;
+    justify-content: center;
+
+    @include in-screen('sm') {
+      display: block;
+    }
+
+    .Article__headingContainer {
+      display: flex;
+      justify-content: center;
+      width: 180px;
+    }
+  }
+}

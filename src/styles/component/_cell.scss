@@ -1,0 +1,45 @@
+.Cell {
+  display: block;
+
+  &__thumbnail {
+    padding-bottom: $size-normal-thumbnail;
+    background: gray;
+  }
+
+  &__title {
+    position: relative;
+    margin: $spacing-normal 0;
+    color: $color-text-link;
+    font-size: $font-size-large-normal-screen;
+    font-family: $font-family-display;
+
+    @include in-screen('sm') {
+      font-size: $font-size-large-small-screen;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: block;
+      width: 7px;
+      height: 13px;
+      content: '';
+      transform: translateY(-50%);
+
+      @include vectorImage('common/arrow_next');
+    }
+  }
+}
+
+a.Cell {
+  transition: $transition-hover;
+
+  &:hover {
+    opacity: $opacity-hover;
+
+    @include in-screen('sm') {
+      opacity: 1;
+    }
+  }
+}

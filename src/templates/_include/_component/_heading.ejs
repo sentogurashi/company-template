@@ -4,6 +4,12 @@ const {
   presentationLevel = 1,
   isVertical = false,
   text = '',
+  classNames = [],
 } = setting;
+
+let classNameArray = ['Heading'];
+classNameArray.push(`Heading--level${presentationLevel}`);
+classNameArray.push(isVertical ? 'Heading--vertical' : 'Heading--horizontal');
+if (classNames) classNameArray = [...classNameArray, ...classNames];
 %>
-<h<%= elementLevel %> class="Heading Heading--level<%= presentationLevel %><%= isVertical ? 'Heading--vertical' : '' %>"><%= text %></h<%= elementLevel %>>
+<h<%= elementLevel %> class="<%= classNameArray.join(' '); %>"><%- text.replace(/\n/g, '<br>') %></h<%= elementLevel %>>

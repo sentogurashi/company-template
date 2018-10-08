@@ -1,0 +1,25 @@
+.Module {
+  margin-bottom: $spacing-XXXLarge;
+
+  &__gridListContainer {
+    width: $width-responsive-wrapper;
+    margin: 0 auto;
+  }
+
+  &__text {
+    margin: 0 auto;
+  }
+
+  &__button {
+    width: 300px;
+  }
+
+  @include in-screen('sm') {
+    margin-right: $spacing-large;
+    margin-left: $spacing-large;
+
+    .Module__gridListContainer {
+      width: auto;
+    }
+  }
+}

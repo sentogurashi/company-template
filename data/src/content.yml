@@ -36,7 +36,9 @@ pages:
       path: ''
     content:
       - id: main
-        heading: 日々のくらしに　余白をつくる
+        heading: |-
+          日々のくらしに
+          余白をつくる
         text: |-
           大きな湯船につかり、ゆっくり息を吐き、こころもからだもほぐれていく
           どこか優しい気持ちになり、みんなが心地よさを共有できる
@@ -50,8 +52,16 @@ pages:
           くらしの中につくっていくことを目指します
       - id: project
         heading: 私たちにできること
+      - id: member
+        heading: 銭湯ぐらしの人々
+        button:
+          label: もっと見る
+          link: /member/
       - id: history
         heading: 創業までのおはなし
+        button:
+          label: さらに詳しく
+          link: /history/
   - id: history
     title: 「株式会社銭湯ぐらし」の経緯
     type: static

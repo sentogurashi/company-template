@@ -1,0 +1,15 @@
+.GridList {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+
+  &--large {
+    grid-template-columns: repeat(auto-fit, 45%);
+    grid-gap: $spacing-XLarge $spacing-large;
+    gap: $spacing-XLarge $spacing-large;
+
+    @include in-screen('sm') {
+      display: block;
+    }
+  }
+}

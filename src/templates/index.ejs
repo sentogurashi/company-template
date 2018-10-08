@@ -2,7 +2,9 @@
 <%
 const findContentById = id => pageInfo.content.find(content => content.id === id);
 const contentMain = findContentById('main');
-const contentHistory = findContentById('history');
+const contentProject = findContentById('project');
+const contentMember = findContentById('member');
+const contentHisotry = findContentById('history');
 %>
 <%# /declaration %>
 
@@ -32,11 +34,13 @@ const contentHistory = findContentById('history');
 <!-- /.TopHero -->
 
 <section class="Module">
-  <article class="Article Article--vertical">
-    <div class="Article__heading">
+  <article class="Article Article--withColumn">
+    <div class="Article__headingContainer">
       <%- include('./_include/_component/_heading', {
         setting: {
           text: contentMain.heading,
+          isVertical: true,
+          classNames: ['Module__heading Article__heading'],
         }
       }) %>
     </div>
@@ -55,24 +59,38 @@ const contentHistory = findContentById('history');
 <!-- /.Module -->
 
 <section class="Module">
-  <ul class="GridList GridList--large">
-    <% projectdata.forEach((project) => { %>
-      <li class="GridList__item">
-        <a class="Cell" href="/project/<%= project.id %>">
-          <div class="Cell__thumbnail"></div>
-          <p class="Cell__title"><%= project.title %></p>
-        </a>
-      </li>
-    <% }); %>
-  </ul>
+  <%- include('./_include/_component/_heading', {
+    setting: {
+      text: contentProject.heading,
+      classNames: ['Module__heading'],
+    }
+  }) %>
+  <div class="Module__gridListContainer">
+    <ul class="GridList GridList--large">
+      <% projectdata.forEach((project) => { %>
+        <li class="GridList__item">
+          <a class="Cell" href="/project/<%= project.id %>">
+            <div class="Cell__thumbnail"></div>
+            <p class="Cell__title"><%= project.title %></p>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
 </section>
 <!-- /.Module -->
 
 <section class="Module">
+  <%- include('./_include/_component/_heading', {
+    setting: {
+      text:  contentMember.heading,
+      classNames: ['Module__heading'],
+    }
+  }) %>
   <ul class="GridList GridList--small">
     <% memberdata.slice(0, 8).forEach((profile) => { %>
       <li class="GridList__item">
-        <a class="Profile" href="/member/#<%= profile.id %>">
+        <a class="Profile" href="/member/#<%= profile.name_id %>">
           <div class="Profile__photo"></div>
           <p class="Profile__name"><%= profile.name_jp %></p>
           <div class="Profile__title">
@@ -89,8 +107,8 @@ const contentHistory = findContentById('history');
   </ul>
   <%- include('./_include/_component/_button', {
     setting: {
-      label: 'もっと見る',
-      link: '/member/',
+      label: contentMember.button.label,
+      link: contentMember.button.link,
       classNames: ['Module__button'],
     }
   }) %>
@@ -99,10 +117,11 @@ const contentHistory = findContentById('history');
 
 <section class="Module">
   <article class="Article Article--horizontal">
-    <div class="Article__heading">
+    <div class="Article__headingContainer">
       <%- include('./_include/_component/_heading', {
         setting: {
-          text: contentHistory.heading,
+          text:  findContentById('history').heading,
+          classNames: ['Module__heading Article__heading'],
         }
       }) %>
     </div>
@@ -119,6 +138,7 @@ const contentHistory = findContentById('history');
           .split('\n\n')
           .slice(0, 2) // 2段落分
           .join('\n\n'),
+          classNames: ['Module__text'],
         }
       }) %>
     </div>

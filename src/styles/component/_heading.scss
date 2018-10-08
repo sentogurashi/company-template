@@ -1,0 +1,13 @@
+.Heading {
+  @include baseHeading;
+
+  &--horizontal {
+    margin-bottom: $spacing-XLarge;
+    text-align: center;
+  }
+
+  &--vertical {
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+  }
+}

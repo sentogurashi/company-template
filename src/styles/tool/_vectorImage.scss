@@ -1,0 +1,8 @@
+@mixin vectorImage($base, $ext: svg) {
+  @include hideText;
+
+  background-image: url('../images/#{$base}.#{$ext}');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
