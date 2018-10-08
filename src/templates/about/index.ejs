@@ -10,7 +10,7 @@ const findContentById = id => pageInfo.content.find(content => content.id === id
 <%- include('../_include/_component/_basicContent', {
   setting: {
     content: findContentById('main'),
-    path: pageInfo.id,
+    heroImagePath: pageInfo.id,
   }
 }); %>
 
