@@ -6,7 +6,7 @@
   }
 
   &--top {
-    margin-top: $spacing-big-middle;
+    margin-top: $spacing-big-normal;
 
     @include isScreen('sm') {
       margin-top: $spacing-big-small;
@@ -29,8 +29,13 @@
   }
 
   &__horizontalList {
-    margin: $spacing-XXLarge 0;
+    max-width: $width-responsive-wrapper;
+    margin: $spacing-XXLarge auto;
     text-align: center;
+
+    @include isScreen('sm') {
+      max-width: auto;
+    }
 
     &Item {
       @include baseFontWeak;
@@ -40,9 +45,9 @@
       line-height: $line-height-thick;
 
       &::after {
-        content: '/';
         display: inline-block;
         margin-left: $spacing-normal;
+        content: '/';
       }
 
       &:last-child {

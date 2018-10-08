@@ -1,5 +1,6 @@
 .HeroImage {
   height: 70vh;
+  overflow: hidden;
 
   @include isScreen('sm') {
     height: 50vh;

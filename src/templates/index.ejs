@@ -31,10 +31,14 @@ const contentHisotry = findContentById('history');
     <!-- /.TopHero__mainContent -->
   </div>
   <!-- /.TopHero__main -->
-  <div class="TopHero__sub">
-    <div class="TopHero__cover js-TopHero__cover">
-      <div class="TopHero__image js-TopHero__image"></div>
-    </div>
+  <div class="TopHero__sub js-Parallax">
+    <ul class="TopHero__cover js-TopHero__cover  js-Parallax__inner">
+      <% [...Array(3)].forEach((_, index) => { %>
+      <li class="TopHero__image js-TopHero__image">
+        <div class="TopHero__imageInner" style="background-image:url('/dest/images/top/hero_<%= index + 1 %>.jpg')"></div>
+      </li>
+      <% }); %>
+    </ul>
   </div>
 </div>
 <!-- /.TopHero -->
@@ -76,8 +80,8 @@ const contentHisotry = findContentById('history');
     <ul class="GridList GridList--large">
       <% projectdata.forEach((project) => { %>
         <li class="GridList__item">
-          <a class="Cell" href="/project/<%= project.id %>">
-            <div class="Cell__thumbnail"></div>
+          <a class="Cell" href="/project/<%= project.id %>/">
+            <div class="Cell__thumbnail" style="background-image:url('/dest/images/project/<%= project.id %>/hero.jpg')"></div>
             <p class="Cell__title"><%= project.title %></p>
           </a>
         </li>
@@ -101,7 +105,7 @@ const contentHisotry = findContentById('history');
       <% memberdata.slice(0, 8).forEach((profile) => { %>
         <li class="GridList__item">
           <a class="Profile Profile--vertical" href="/member/#<%= profile.name_id %>">
-            <div class="Profile__photo"></div>
+            <div class="Profile__photo" style="background-image:url('/dest/images/member/<%= profile.name_id %>.jpg')"></div>
             <p class="Profile__name"><%= profile.name_jp %></p>
             <div class="Profile__title">
               <% if (profile.position) { %>
@@ -138,6 +142,9 @@ const contentHisotry = findContentById('history');
       }) %>
     </div>
     <!-- /.Article__heading -->
+    <div class="Article__image">
+      <div class="Article__imageInner" style="background-image:url('/dest/images/top/history.png')"></div>
+    </div>
     <div class="Article__body">
       <%- include('./_include/_component/_text', {
         setting: {

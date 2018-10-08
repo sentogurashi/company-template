@@ -25,7 +25,7 @@
         {
           "id": "project",
           "text": "私たちにできること",
-          "path": "/\\#project"
+          "path": "/#project"
         },
         {
           "id": "member",

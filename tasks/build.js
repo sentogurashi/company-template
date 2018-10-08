@@ -1,11 +1,14 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import del from 'del';
 
 import pkg from '../package.json';
 
 const { path: PATH } = pkg;
 
 const $ = gulpLoadPlugins();
+
+const buildClean = () => del([PATH.BUILD]);
 
 const buildHTML = (done) => {
   gulp
@@ -30,6 +33,6 @@ const buildAssets = (done) => {
   done();
 };
 
-const build = gulp.series(buildHTML, buildAssets);
+const build = gulp.series(buildClean, buildHTML, buildAssets);
 
 export default build;

@@ -13,14 +13,19 @@ const imageClean = () => del([`${PATH.DEST + PATH.IMAGES}/*`]);
 
 const imageOptimize = (done) => {
   gulp
-    .src([`${PATH.SRC + PATH.IMAGES}/**/*`])
+    .src([`${PATH.SRC + PATH.IMAGES}/**/*.jpg`, `${PATH.SRC + PATH.IMAGES}/**/*.png`, `${PATH.SRC + PATH.IMAGES}/**/*.gif`])
+    .pipe(
+      $.imageResize({
+        width: 1600,
+        imageMagick: true,
+      }),
+    )
     .pipe(
       $.imagemin(
         [
           // prettier-ignore
           pngquant(),
           mozjpeg({ qualty: 80 }),
-          $.imagemin.svgo(),
           $.imagemin.gifsicle(),
         ],
         {
@@ -33,5 +38,18 @@ const imageOptimize = (done) => {
   done();
 };
 
-const image = gulp.series(imageClean, imageOptimize);
+const svgOptimize = (done) => {
+  gulp
+    .src([`${PATH.SRC + PATH.IMAGES}/**/*.svg`])
+    .pipe(
+      $.imagemin([$.imagemin.svgo()], {
+        verbose: true,
+      }),
+    )
+    .pipe(gulp.dest(PATH.DEST + PATH.IMAGES));
+
+  done();
+};
+
+const image = gulp.series(imageClean, imageOptimize, svgOptimize);
 export default image;

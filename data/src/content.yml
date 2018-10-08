@@ -15,7 +15,7 @@ common:
         path: /about
       - id: project
         text: 私たちにできること
-        path: /\#project
+        path: /#project
       - id: member
         text: 銭湯ぐらしの人々
         path: /member

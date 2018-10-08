@@ -16,8 +16,21 @@
       @include isScreen('sm') {
         width: 100%;
         margin-right: 0;
-        margin-bottom: $spacing-XLarge;
+        margin-bottom: $spacing-big-small;
       }
+    }
+  }
+
+  &__image {
+    width: $width-narrow-content;
+    margin: $spacing-XLarge auto;
+
+    &Inner {
+      width: 100%;
+      padding-bottom: 100% * (817 / 1600);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
     }
   }
 }

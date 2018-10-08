@@ -1,4 +1,12 @@
 import FixedNavigation from './class/fixedNavigation';
+import SlideShow from './class/slideShow';
+
+function setSlideShow() {
+  const slideShow = new SlideShow({
+    rootElement: document.querySelector('.js-TopHero__cover'),
+    slideSelector: '.js-TopHero__image',
+  });
+}
 
 function setFixedNavigation() {
   const targetElement = document.querySelector('.js-headerShowLine');
@@ -19,6 +27,7 @@ function setFixedNavigation() {
 
 function main() {
   setFixedNavigation();
+  setSlideShow();
 }
 
 window.addEventListener('DOMContentLoaded', main);
