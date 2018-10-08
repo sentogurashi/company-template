@@ -1,9 +1,9 @@
 .Button {
+  @include baseDisplayFont;
+
   display: block;
   padding: $spacing-middle 0;
-  color: $color-text-base;
   font-size: $font-size-middle-normal-screen;
-  font-family: $font-family-display;
   text-align: center;
   background-color: $color-button-background;
   box-shadow: $box-shadow-base;

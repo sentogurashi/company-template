@@ -8,11 +8,11 @@
   }
 
   &__title {
+    @include baseDisplayFont;
+
     position: relative;
     margin: $spacing-normal 0;
-    color: $color-text-link;
     font-size: $font-size-large-normal-screen;
-    font-family: $font-family-display;
 
     @include isScreen('sm') {
       font-size: $font-size-large-small-screen;

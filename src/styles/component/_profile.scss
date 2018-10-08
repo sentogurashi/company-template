@@ -60,10 +60,9 @@
   }
 
   &__name {
-    color: $color-text-base;
+    @include baseDisplayFont;
+
     font-size: $font-size-middle-normal-screen;
-    font-family: $font-family-display;
-    letter-spacing: $letter-spacing-wide;
 
     @include isScreen('sm') {
       text-align: center;

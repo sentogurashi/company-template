@@ -80,10 +80,9 @@
 
     &Item {
       @include verticalWriting;
+      @include baseDisplayFont;
 
       font-size: $font-size-middle-normal-screen;
-      font-family: $font-family-display;
-      letter-spacing: $letter-spacing-wide;
 
       & > a {
         color: $color-text-base;
