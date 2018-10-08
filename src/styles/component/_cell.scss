@@ -2,10 +2,9 @@
   display: block;
 
   &__thumbnail {
+    @include imageHolder;
+
     padding-bottom: $size-normal-thumbnail;
-    background: $color-pale-gray;
-    background-position: center;
-    background-size: cover;
   }
 
   &__title {

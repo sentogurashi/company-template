@@ -1,8 +1,16 @@
 .Module {
   margin-bottom: $spacing-big-middle;
 
+  @include isScreen('sm') {
+    margin-bottom: $spacing-big-small;
+  }
+
   &--top {
     margin-top: $spacing-big-middle;
+
+    @include isScreen('sm') {
+      margin-top: $spacing-big-small;
+    }
   }
 
   &__gridListContainer {

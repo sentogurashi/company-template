@@ -9,24 +9,53 @@
     .Profile__name {
       margin: $spacing-normal 0;
     }
+
+    .Profile__photo {
+      @include isScreen('sm') {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
+
+  &--horizontal {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacing-big-normal;
+
+    .Profile__name,
+    .Profile__title {
+      margin-bottom: $spacing-normal;
+    }
+
+    @include isScreen('sm') {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: $spacing-XXXLarge;
+    }
+  }
+
+  &__column {
+    &Sub {
+      margin-right: $spacing-XXXLarge;
+
+      @include isScreen('sm') {
+        margin-right: 0;
+        margin-bottom: $spacing-large;
+      }
+    }
   }
 
   &__photo {
+    @include imageHolder;
+
     width: 160px;
     height: 160px;
-    background: $color-pale-gray; // TODO
-    background-position: center center;
-    background-size: cover;
     border-radius: 50%;
 
     @include isScreen('lg') {
       width: 140px;
       height: 140px;
-    }
-
-    @include isScreen('sm') {
-      width: 120px;
-      height: 120px;
     }
   }
 
@@ -34,12 +63,22 @@
     color: $color-text-base;
     font-size: $font-size-middle-normal-screen;
     font-family: $font-family-display;
+    letter-spacing: $letter-spacing-wide;
+
+    @include isScreen('sm') {
+      text-align: center;
+    }
   }
 
   &__title {
     display: flex;
     color: $color-text-weak;
     font-size: $font-size-small-normal-screen;
+    letter-spacing: $letter-spacing-wide;
+
+    @include isScreen('sm') {
+      justify-content: center;
+    }
   }
 
   &__position {
@@ -50,6 +89,14 @@
       margin-left: $spacing-normal;
       content: '/';
     }
+  }
+
+  &__text {
+    @include baseText;
+
+    max-width: $width-narrow-content;
+    font-size: $font-size-small-normal-screen;
+    line-height: $line-height-thick;
   }
 }
 

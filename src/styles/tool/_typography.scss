@@ -2,7 +2,7 @@
   color: $color-text-weak;
   font-size: $font-size-base-normal-screen;
   font-family: $font-family-base;
-  line-height: $line-height-base;
+  line-height: $line-height-wide;
   letter-spacing: $letter-spacing-wide;
 
   @include isScreen('sm') {
@@ -15,6 +15,7 @@
   font-size: $font-size-XLarge-normal-screen;
   font-family: $font-family-display;
   line-height: $line-height-base;
+  letter-spacing: $letter-spacing-wide;
 
   @include isScreen('sm') {
     font-size: $font-size-XLarge-small-screen;

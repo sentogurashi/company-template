@@ -4,26 +4,30 @@ const {
   heroImagePath = '',
 } = setting;
 %>
-<div class="Hero">
-  <div class="Hero__inner">
-    <div class="Hero__image" style="background-image:url(../../images/<%= heroImagePath %>)"></div>
+<div class="HeroImage">
+  <div class="HeroImage__inner">
+    <div class="HeroImage__image" style="background-image:url('/dest/images/<%= heroImagePath %>/hero.jpg')"></div>
   </div>
 </div>
-<article class="Article Article--vertical">
-  <div class="Article__heading">
-    <%- include('../_component/_heading', {
-      setting: {
-        text: content.heading,
-      }
-    }) %>
-  </div>
-  <!-- /.Article__heading -->
-  <div class="Article__body">
-    <%- include('../_component/_text', {
-      setting: {
-        text: content.text,
-      }
-    }) %>
-  </div>
-  <!-- /.Article__body -->
-</article>
+<section class="Module">
+  <article class="Article Article--withColumn">
+    <div class="Article__headingContainer">
+      <%- include('../_component/_heading', {
+        setting: {
+          text: content.heading,
+          isVertical: true,
+          classNames: ['Module__heading Article__heading'],
+        }
+      }) %>
+    </div>
+    <!-- /.Article__heading -->
+    <div class="Article__body">
+      <%- include('../_component/_text', {
+        setting: {
+          text: content.text,
+        }
+      }) %>
+    </div>
+    <!-- /.Article__body -->
+  </article>
+</section>

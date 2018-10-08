@@ -6,18 +6,35 @@
   max-height: 900px;
   overflow: hidden;
 
+  @include isScreen('sm') {
+    display: block;
+    max-height: auto;
+  }
+
   &__main {
     &Content {
       position: absolute;
       top: 50%;
       left: 10%;
       transform: translateY(-50%);
+
+      @include isScreen('sm') {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+      }
     }
   }
 
   &__vi {
     display: flex;
     align-items: flex-end;
+
+    @include isScreen('sm') {
+      justify-content: center;
+      margin-top: $spacing-XXXLarge;
+    }
 
     &Logo {
       @include vectorImage('common/vi_logo');
@@ -40,6 +57,10 @@
     height: 220px;
     margin-top: 60px;
 
+    @include isScreen('sm') {
+      margin-bottom: 40px;
+    }
+
     &List {
       position: absolute;
       top: 0;
@@ -49,12 +70,20 @@
       justify-content: space-between;
       width: 150px;
       height: 220px;
+
+      @include isScreen('sm') {
+        position: static;
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
 
     &Item {
       @include verticalWriting;
 
+      font-size: $font-size-middle-normal-screen;
       font-family: $font-family-display;
+      letter-spacing: $letter-spacing-wide;
 
       & > a {
         color: $color-text-base;
@@ -64,8 +93,11 @@
 
   &__cover {
     width: 58.59vw;
-    max-height: 500px;
     padding-bottom: $height-tophero-cover;
     background-color: $color-pale-gray;
+
+    @include isScreen('sm') {
+      width: 100%;
+    }
   }
 }
