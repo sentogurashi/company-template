@@ -1,0 +1,22 @@
+<%# declaration %>
+<%
+const findContentById = id => pageInfo.content.find(content => content.id === id);
+%>
+<%# /declaration %>
+
+<%# insertContent %>
+<% function insertContent(__output) { %>
+
+<%- include('../_include/_component/_basicContent', {
+  setting: {
+    content: findContentById('main'),
+    path: pageInfo.id,
+  }
+}); %>
+
+<% } %>
+<%# /insertContent %>
+
+<%# extend %>
+<%- include ../_include/_layout/_base %>
+<%# /extend %>

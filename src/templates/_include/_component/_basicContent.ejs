@@ -1,0 +1,29 @@
+<% 
+const {
+  content = {},
+  heroImagePath = '',
+} = setting;
+%>
+<div class="Hero">
+  <div class="Hero__inner">
+    <div class="Hero__image" style="background-image:url(../../images/<%= heroImagePath %>)"></div>
+  </div>
+</div>
+<article class="Article Article--vertical">
+  <div class="Article__heading">
+    <%- include('../_component/_heading', {
+      setting: {
+        text: content.heading,
+      }
+    }) %>
+  </div>
+  <!-- /.Article__heading -->
+  <div class="Article__body">
+    <%- include('../_component/_text', {
+      setting: {
+        text: content.text,
+      }
+    }) %>
+  </div>
+  <!-- /.Article__body -->
+</article>

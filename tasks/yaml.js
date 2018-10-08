@@ -9,14 +9,14 @@ const $ = gulpLoadPlugins();
 
 const yaml = (done) => {
   gulp
-    .src(`${PATH.DATA}/**/*.yml`)
+    .src(`${PATH.DATA}/src/*.yml`)
     .pipe($.plumber())
     .pipe(
       $.yaml({
         space: 2,
       }),
     )
-    .pipe(gulp.dest(PATH.DATA));
+    .pipe(gulp.dest(`${PATH.DATA}/dest`));
   done();
 };
 

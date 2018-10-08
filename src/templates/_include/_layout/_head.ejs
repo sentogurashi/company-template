@@ -1,0 +1,29 @@
+<% 
+const isTop = pageInfo.id === 'top';
+const title = isTop ? pageInfo.title : `${pageInfo.title} - 銭湯ぐらし`; %>
+<head>
+<meta charset="UTF-8">
+<title><%= title %></title>
+<meta name="description" content="<%= pageInfo.meta.description %>">
+<meta property="fb:app_id" content="306929856428469" />
+<meta property="og:title" content="<%= title %>" />
+<meta property="og:url" content="<%= pageInfo.meta.url %>" />
+<meta property="og:description" content="<%= pageInfo.meta.description %>" />
+<meta property="og:image" content="http://www.sentogurashi.com/assets/images/share/<%= pageInfo.id %>.jpg" />
+<meta property="og:image:width" content="1280" />
+<meta property="og:image:height" content="853" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sentogurashi">
+<meta name="twitter:title" content="<%= title %>">
+<meta name="twitter:description" content="<%= pageInfo.meta.description %>">
+<meta name="twitter:image:src" content="http://www.sentogurashi.com/assets/images/share/<%= pageInfo.id %>.jpg">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<% if(isTop) { %>
+<meta name="google-site-verification" content="oIhGG07K5eP0_scMyqal6daNoObMOdQOYAVcmCK0ays" />
+<meta property="og:type" content="website"/>
+<% } else { %>
+<meta property="og:type" content="article"/>
+<% } %>
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/hannari.css">
+<link rel="stylesheet" href="../styles/main.css">
+</head>

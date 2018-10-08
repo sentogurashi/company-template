@@ -1,0 +1,8 @@
+<%
+const {
+  label = '',
+  link = '',
+  classNames = [],
+} = setting;
+%>
+<a class="<%= ['Button', ...classNames].join(' ') %>" href="<%= link %>"><%= label %></a>

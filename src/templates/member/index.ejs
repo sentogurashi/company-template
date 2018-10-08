@@ -1,0 +1,44 @@
+<%# declaration %>
+<%
+const findContentById = id => pageInfo.content.find(content => content.id === id);
+%>
+<%# /declaration %>
+
+<%# insertContent %>
+<% function insertContent(__output) { %>
+
+<%- include('../_include/_component/_basicContent', {
+  setting: {
+    content: findContentById('main'),
+    path: pageInfo.id,
+  }
+}); %>
+
+<ul class="ProfileList">
+<% memberdata.forEach((profile) => { %>
+  <li class="ProfileList__item Profile">
+    <div class="Profile__columnSub">
+      <div class="Profile__photo"></div>
+    </div>
+    <dl class="Profile__ColumnMain">
+      <dt class="Profile__name"><%= profile.name_jp %></dt>
+      <dd class="Profile__title">
+        <% if (profile.position) { %>
+        <p class="Profile__position"><%= profile.position %></p>
+        <% } %>
+        <% if (profile.profession) { %>
+        <p class="Profile__profession"><%= profile.profession %></p>
+        <% } %>
+      </dd>
+      <dd><%= profile.text %></dd>
+    </dl>
+  </li>
+<% }); %>
+</ul>
+
+<% } %>
+<%# /insertContent %>
+
+<%# extend %>
+<%- include ../_include/_layout/_base %>
+<%# /extend %>

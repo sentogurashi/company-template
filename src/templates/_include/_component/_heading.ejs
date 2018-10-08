@@ -1,0 +1,9 @@
+<% 
+const {
+  elementLevel = 1,
+  presentationLevel = 1,
+  isVertical = false,
+  text = '',
+} = setting;
+%>
+<h<%= elementLevel %> class="Heading Heading--level<%= presentationLevel %><%= isVertical ? 'Heading--vertical' : '' %>"><%= text %></h<%= elementLevel %>>

@@ -1,0 +1,13 @@
+<%
+const {
+  listClassNames = [],
+  itemClassNames = [],
+} = setting;
+%>
+<ul class="<%= listClassNames.join(' ') %>">
+<% sitedata.common.layout.navigation.forEach((item) => { %>
+  <li class="<%= itemClassNames.join(' ') %>">
+    <a href="<%= item.path %>"><%= item.text %></a>
+  </li>
+<% }); %>
+</ul>

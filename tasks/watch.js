@@ -12,7 +12,7 @@ const watchFiles = (done) => {
   gulp.watch([`${PATH.SRC + PATH.STYLES}/**/*.scss`], gulp.series(style, bsReload));
   gulp.watch([`${PATH.SRC + PATH.SCRIPTS}/**/*.js`], gulp.series(script, bsReload));
   gulp.watch([`${PATH.SRC + PATH.TEMPLATES}/**/*.ejs`], gulp.series(template, bsReload));
-  gulp.watch([`${PATH.DATA}**/*.yml`], gulp.series(yaml, template, bsReload));
+  gulp.watch([`${PATH.DATA}src/*.yml`], gulp.series(yaml, template, bsReload));
   done();
 };
 

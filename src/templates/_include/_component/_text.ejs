@@ -1,0 +1,11 @@
+<% 
+const {
+  text = '',
+} = setting;
+
+const textElement = text.split('\n\n').map(line => 
+`<p class="Text__paragraph">${line.replace(/\n/g, '<br>')}</p>`).join('');
+%>
+<div class="Text">
+<%- textElement %>
+</div>

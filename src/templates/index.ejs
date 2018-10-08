@@ -1,5 +1,143 @@
-<%- JSON.stringify(sitedata); %>
-<% memberData.forEach((member) => { %>
-  なまえは<%- member.name %>
-  としは<%- member.age %>
-<% }); %>
+<%# declaration %>
+<%
+const findContentById = id => pageInfo.content.find(content => content.id === id);
+const contentMain = findContentById('main');
+const contentHistory = findContentById('history');
+%>
+<%# /declaration %>
+
+<%# insertContent %>
+<% function insertContent(__output) { %>
+
+<div class="TopHero">
+  <div class="TopHero__main">
+    <div class="TopHero__vi">
+      <div class="TopHero__viLogo"></div>
+      <div class="TopHero__viText"></div>
+    </div>
+    <nav class="TopHero__navigation">
+      <ul class="TopHero__navigationList">
+        <% sitedata.common.layout.navigation.forEach((item) => { %>
+          <li class="TopHero__navationItem">
+            <a href="<%= item.path %>"><%= item.text %></a>
+          </li>
+        <% }); %>
+      </ul>
+    </nav>
+  </div>
+  <div class="TopHero__cover js-TopHero__cover">
+    <div class="TopHero__image js-TopHero__image"></div>
+  </div>
+<div>
+<!-- /.TopHero -->
+
+<section class="Module">
+  <article class="Article Article--vertical">
+    <div class="Article__heading">
+      <%- include('./_include/_component/_heading', {
+        setting: {
+          text: contentMain.heading,
+        }
+      }) %>
+    </div>
+    <!-- /.Article__heading -->
+    <div class="Article__body">
+      <%- include('./_include/_component/_text', {
+        setting: {
+          text: contentMain.text,
+        }
+      }) %>
+    </div>
+    <!-- /.Article__body -->
+  </article>
+  <!-- /.Article -->
+</section>
+<!-- /.Module -->
+
+<section class="Module">
+  <ul class="GridList GridList--large">
+    <% projectdata.forEach((project) => { %>
+      <li class="GridList__item">
+        <a class="Cell" href="/project/<%= project.id %>">
+          <div class="Cell__thumbnail"></div>
+          <p class="Cell__title"><%= project.title %></p>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+</section>
+<!-- /.Module -->
+
+<section class="Module">
+  <ul class="GridList GridList--small">
+    <% memberdata.slice(0, 8).forEach((profile) => { %>
+      <li class="GridList__item">
+        <a class="Profile" href="/member/#<%= profile.id %>">
+          <div class="Profile__photo"></div>
+          <p class="Profile__name"><%= profile.name_jp %></p>
+          <div class="Profile__title">
+            <% if (profile.position) { %>
+            <p class="Profile__position"><%= profile.position %></p>
+            <% } %>
+            <% if (profile.profession) { %>
+            <p class="Profile__profession"><%= profile.profession %></p>
+            <% } %>
+        </div>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+  <%- include('./_include/_component/_button', {
+    setting: {
+      label: 'もっと見る',
+      link: '/member/',
+      classNames: ['Module__button'],
+    }
+  }) %>
+</section>
+<!-- /.Module -->
+
+<section class="Module">
+  <article class="Article Article--horizontal">
+    <div class="Article__heading">
+      <%- include('./_include/_component/_heading', {
+        setting: {
+          text: contentHistory.heading,
+        }
+      }) %>
+    </div>
+    <!-- /.Article__heading -->
+    <div class="Article__body">
+      <%- include('./_include/_component/_text', {
+        setting: {
+          text: sitedata
+          .pages
+          .find(pageInfo => pageInfo.id === 'history')
+          .content
+          .find(content => content.id === 'main')
+          .text
+          .split('\n\n')
+          .slice(0, 2) // 2段落分
+          .join('\n\n'),
+        }
+      }) %>
+    </div>
+    <!-- /.Article__body -->
+  </article>
+  <!-- /.Article -->
+  <%- include('./_include/_component/_button', {
+    setting: {
+      label: 'さらに詳しく',
+      link: '/history/',
+      classNames: ['Module__button'],
+    }
+  }) %>
+</section>
+<!-- /.Module -->
+
+<% } %>
+<%# /insertContent %>
+
+<%# extend %>
+<%- include ./_include/_layout/_base %>
+<%# /extend %>

@@ -7,7 +7,6 @@ const $ = gulpLoadPlugins();
 const { path: PATH } = pkg;
 
 const sketchExport = (done) => {
-  console.log(PATH.SRC + PATH.IMAGES);
   gulp
     .src(`${PATH.SRC + PATH.SKETCHS}/symbol.sketch`)
     .pipe(
