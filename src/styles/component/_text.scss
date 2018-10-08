@@ -1,0 +1,13 @@
+.Text {
+  @include baseText;
+
+  max-width: $width-narrow-content;
+
+  &__paragraph {
+    margin-bottom: $spacing-normal;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

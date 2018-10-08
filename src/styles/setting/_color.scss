@@ -1,0 +1,13 @@
+/*
+  1. abstract color
+*/
+$color-black: #000;
+// $color-darkgray: #4a4a4a;
+
+/*
+  2 UI color
+*/
+$color-text-strong: $color-black;
+$color-text-weak: rgba($color-black, 0.4);
+$color-text-link: $color-black;
+$color-text-link-hover: rgba($color-black, 0.6);

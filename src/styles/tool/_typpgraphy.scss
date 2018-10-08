@@ -1,0 +1,23 @@
+@mixin baseText {
+  color: $color-text-weak;
+  font-size: $font-size-base-normal-screen;
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing-wide;
+
+  @include in-screen('sm') {
+    font-size: $font-size-base-small-screen;
+  }
+}
+
+@mixin baseHeading {
+}
+
+@mixin baseLink {
+  color: $color-text-link;
+  transition: ease 0.3s;
+
+  &:hover {
+    color: $color-text-link-hover;
+  }
+}

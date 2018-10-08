@@ -5,7 +5,9 @@
   "editor.formatOnSave": true,
   "files.associations": {
     "*.css": "scss",
-    ".babelrc": "json5"
+    ".babelrc": "json5",
+    ".stylelintrc": "json5",
+    ".eslintrc": "json5"
   },
   "git.ignoreLimitWarning": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
