@@ -28,6 +28,31 @@
     margin: $spacing-big-normal auto;
   }
 
+  &__horizontalList {
+    display: flex;
+    justify-content: center;
+    margin: $spacing-XXLarge 0;
+
+    &Item {
+      @include baseFontWeak;
+
+      margin-right: $spacing-normal;
+
+      &::after {
+        content: '/';
+        display: inline-block;
+        margin-left: $spacing-normal;
+      }
+
+      &:last-child {
+        &::after {
+          display: none;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
   @include isScreen('sm') {
     margin-right: $spacing-large;
     margin-left: $spacing-large;

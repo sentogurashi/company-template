@@ -2,7 +2,8 @@
   padding: $spacing-XXLarge 0;
 
   &__text {
-    color: $color-text-weak;
+    @include baseFontWeak;
+
     font-size: $font-size-small-normal-screen;
     text-align: center;
   }

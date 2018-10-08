@@ -1,5 +1,5 @@
 .Button {
-  @include baseDisplayFont;
+  @include baseFontDisplay;
 
   display: block;
   padding: $spacing-middle 0;

@@ -10,9 +10,9 @@ import clean from './tasks/clean';
 import watch from './tasks/watch';
 
 export {
-  image, script, style, yaml, template, sketch, clean, watch,
+  image, script, style, csv, yaml, template, sketch, clean, watch,
 };
 
-export const generate = gulp.series(clean, image, script, style, csv, yaml, csv, template);
+export const generate = gulp.series(clean, image, script, style, yaml, csv, template);
 
 export default gulp.series(generate, watch);

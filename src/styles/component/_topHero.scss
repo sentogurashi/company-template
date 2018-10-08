@@ -80,7 +80,7 @@
 
     &Item {
       @include verticalWriting;
-      @include baseDisplayFont;
+      @include baseFontDisplay;
 
       font-size: $font-size-middle-normal-screen;
 

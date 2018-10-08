@@ -15,7 +15,7 @@ common:
         path: /about
       - id: project
         text: 私たちにできること
-        path: \#project
+        path: /\#project
       - id: member
         text: 銭湯ぐらしの人々
         path: /member
@@ -70,7 +70,9 @@ pages:
       url: http://www.sentogurashi.com/history/
     content:
       - id: main
-        heading: 「株式会社銭湯ぐらし」の経緯
+        heading: |
+          「株式会社銭湯ぐらし」の
+          経緯
         text: |-
           「株式会社 銭湯ぐらし」は、2017年3月から2018年2月に実施されたプロジェクト「銭湯ぐらし」から生まれました。
 
@@ -134,3 +136,8 @@ pages:
     meta:
       description: TODO
       url: http://www.sentogurashi.com/history/
+    content:
+      - id: example
+        heading: たとえば
+      - id: comment
+        heading: 担当者より

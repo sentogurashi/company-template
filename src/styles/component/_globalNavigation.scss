@@ -9,7 +9,7 @@
 
       & > a {
         @include baseLink;
-        @include baseDisplayFont;
+        @include baseFontDisplay;
       }
     }
 

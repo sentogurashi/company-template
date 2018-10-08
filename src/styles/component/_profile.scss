@@ -60,7 +60,7 @@
   }
 
   &__name {
-    @include baseDisplayFont;
+    @include baseFontDisplay;
 
     font-size: $font-size-middle-normal-screen;
 
@@ -70,10 +70,10 @@
   }
 
   &__title {
+    @include baseFontWeak;
+
     display: flex;
-    color: $color-text-weak;
     font-size: $font-size-small-normal-screen;
-    letter-spacing: $letter-spacing-wide;
 
     @include isScreen('sm') {
       justify-content: center;

@@ -8,7 +8,7 @@
   }
 
   &__title {
-    @include baseDisplayFont;
+    @include baseFontDisplay;
 
     position: relative;
     margin: $spacing-normal 0;
@@ -30,6 +30,13 @@
 
       @include vectorImage('common/ico_arrow_next');
     }
+  }
+
+  &__caption {
+    @include baseFontWeak;
+
+    margin: $spacing-normal 0;
+    font-size: $font-size-small-normal-screen;
   }
 }
 
