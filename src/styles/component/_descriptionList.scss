@@ -1,0 +1,36 @@
+.DescriptionList {
+  @include baseText;
+
+  display: flex;
+  max-width: $width-narrow-content;
+
+  @include isScreen('sm') {
+    display: block;
+    margin: $spacing-large 0;
+  }
+
+  & > dt,
+  & > dd {
+    display: block;
+    padding: $spacing-large 0;
+
+    @include isScreen('sm') {
+      padding: 0;
+    }
+  }
+
+  & > dt {
+    width: $spacing-big-middle;
+    // font-weight: bold;
+  }
+
+  & > dd {
+    flex: 1;
+    color: $color-text-base;
+  }
+
+  &__subList {
+    &Item {
+    }
+  }
+}

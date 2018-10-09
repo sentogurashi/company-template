@@ -20,9 +20,11 @@
       }
     }
 
-    // .Article__body {
-    //   margin-top: $spacing-XXXLarge;
-    // }
+    .Article__body {
+      @include isScreen('sm') {
+        margin-top: $spacing-XXXLarge;
+      }
+    }
   }
 
   &__image {
@@ -35,6 +37,33 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
+    }
+  }
+
+  &__subsection {
+    margin-bottom: $spacing-big-small;
+  }
+
+  &__headingSub {
+    margin-bottom: $spacing-XLarge;
+    color: $color-text-base;
+    font-size: 3rem;
+    letter-spacing: $letter-spacing-wide;
+
+    @include isScreen('sm') {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__lead {
+    margin-top: -($spacing-middle);
+    margin-bottom: $spacing-XLarge;
+    color: $color-text-base;
+    font-size: $font-size-middle-normal-screen;
+    letter-spacing: $letter-spacing-wide;
+
+    @include isScreen('sm') {
+      font-size: 1.6rem;
     }
   }
 }

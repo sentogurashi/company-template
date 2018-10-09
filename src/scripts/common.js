@@ -12,6 +12,18 @@ function setParallax() {
   }).init());
 }
 
+function insertContact() {
+  Array.from(document.querySelectorAll('.js-contact')).forEach((element) => {
+    const convert = str => str
+      .replace(/s[0-9]/g, '')
+      .split('')
+      .reverse()
+      .join('');
+    const str = 's0t92s7Yus8kGs7s4azFs6mcs81ds32bs105s0WZs8zB0s2bms45Wa';
+    element.innerText = window.atob(convert(str));
+  });
+}
+
 function setFixedNavigation() {
   const targetElement = document.querySelector('.js-headerShowLine');
 
@@ -44,6 +56,7 @@ function setFixedNavigation() {
 function main() {
   setParallax();
   setFixedNavigation();
+  insertContact();
 }
 
 function onLoad() {

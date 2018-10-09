@@ -1,7 +1,8 @@
 <%# declaration %>
 <%
 const findContentById = id => pageInfo.content.find(content => content.id === id);
-const content = findContentById('main');
+const contentMain = findContentById('main');
+const contentOverview = findContentById('overView');
 %>
 <%# /declaration %>
 <%# insertContent %>
@@ -11,19 +12,49 @@ const content = findContentById('main');
     <div class="Article__headingContainer">
       <%- include('../_include/_component/_heading', {
         setting: {
-          text: content.heading,
+          text: contentMain.heading,
           isVertical: true,
           classNames: ['Module__heading Article__heading'],
         }
       }) %>
     </div>
-    <!-- /.Article__heading -->
+    <!-- /.Article__headingContainer -->
     <div class="Article__body">
-      <%- include('../_include/_component/_text', {
-        setting: {
-          text: content.text,
-        }
-      }) %>
+      <div class="Article__subsection">
+        <h3 class="Article__headingSub">
+          <%= contentMain.headingSub %>
+        </h3>
+        <p class="Article__lead">
+          <%= contentMain.lead %>
+        </p>
+        <%- include('../_include/_component/_text', {
+          setting: {
+            text: contentMain.text,
+          }
+        }) %>
+      </div>
+      <div class="Article__subsection">
+        <h3 class="Article__headingSub">
+          <%= contentOverview.headingSub %>
+        </h3>
+        <% contentOverview.list.forEach((list) => { %>
+        <dl class="DescriptionList">
+          <dt>
+            <%= list.term %></dt>
+          <dd>
+            <% if (Array.isArray(list.description)) { %>
+            <ul class="DescriptionList__sublist">
+              <% list.description.forEach(item) => { %>
+              <%= item %>
+              <% }); %>
+            </ul>
+            <% } else { %>
+            <%= list.description %>
+            <% } %>
+          </dd>
+        </dl>
+        <% }); %>
+      </div>
     </div>
     <!-- /.Article__body -->
   </article>

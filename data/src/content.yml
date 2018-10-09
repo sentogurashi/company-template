@@ -73,9 +73,9 @@ pages:
     content:
       - id: main
         heading: 銭湯ぐらしとは
+        headingSub: 銭湯ぐらしが目指すもの
+        lead: 「日々のくらしに、余白をつくる」
         text: |-
-          なぜ「余白」か？
-
           たくさんの情報や人々が行き交う現代では、物理的にも精神的にも「余白」が少なくなっています。
           銭湯は、そんな私たちに「余白」の大切さを気づかせてくれます。
 
@@ -92,6 +92,29 @@ pages:
           必要な余白をいかにつくるか？　生まれた余白をいかに使うか？
           私たちは、日常に余白を与えてくれる銭湯の価値観に学び、
           新しい余白のつくり方・使い方を考えていきます。
+      - id: overView
+        headingSub: 会社概要
+        list:
+          - term: 会社名
+            description: 株式会社 銭湯ぐらし
+          - term: 代表取締役
+            description: 加藤 優一
+          - term: 取締役
+            description: 伊藤 直樹、菅谷 真央、宮 早希枝
+          - term: 設立
+            description: 2018年10月10日
+          - term: 資本金
+            description: 1010,000円
+          - term: 事業内容
+            description:
+              - 銭湯を活かした場づくり
+              - 企業コラボレーション
+              - ブランドデザイン
+              - お風呂と旅のプロデュース
+              - 銭湯におけるイベントの実施
+              - 余白を使った空間デザインなど
+          - term: お問い合わせ
+            description: <span class="js-contact"></span>
 
   - id: project
     title: TODO
