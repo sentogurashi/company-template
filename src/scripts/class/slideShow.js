@@ -26,6 +26,6 @@ export default class SlideShow {
     element.classList.add('is-animate');
     window.setTimeout(() => {
       this.next(element);
-    }, 4000);
+    }, 5000);
   }
 }

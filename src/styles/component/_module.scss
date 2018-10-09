@@ -26,6 +26,11 @@
   &__button {
     width: 300px;
     margin: $spacing-big-normal auto;
+
+    @include isScreen('sm') {
+      width: 100%;
+      max-width: 300px;
+    }
   }
 
   &__horizontalList {
@@ -34,7 +39,8 @@
     text-align: center;
 
     @include isScreen('sm') {
-      max-width: auto;
+      max-width: none;
+      text-align: left;
     }
 
     &Item {

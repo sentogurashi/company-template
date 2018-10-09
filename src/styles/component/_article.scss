@@ -14,15 +14,19 @@
       margin-right: $spacing-XXLarge;
 
       @include isScreen('sm') {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: $spacing-big-small;
+        width: auto;
+        margin-right: auto;
+        margin-left: auto;
       }
+    }
+
+    .Article__body {
+      margin-top: $spacing-XXXLarge;
     }
   }
 
   &__image {
-    width: $width-narrow-content;
+    max-width: $width-narrow-content;
     margin: $spacing-XLarge auto;
 
     &Inner {

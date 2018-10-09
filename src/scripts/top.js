@@ -1,5 +1,18 @@
-import FixedNavigation from './class/fixedNavigation';
 import SlideShow from './class/slideShow';
+import Parallax from './class/parallax';
+
+function setParallax() {
+  const mediaQueryList = window.matchMedia('(max-width: 700px)');
+  if (mediaQueryList.matches) return;
+  Array.from(document.querySelectorAll('.js-TopParallax')).map(element => new Parallax({
+    element: element.querySelector('.js-TopParallax__inner'),
+    baseElement: element,
+    type: 'move',
+    direction: 'reverse',
+    isWindowMode: true,
+    speed: 3.5,
+  }).init());
+}
 
 function setSlideShow() {
   const slideShow = new SlideShow({
@@ -8,26 +21,9 @@ function setSlideShow() {
   });
 }
 
-function setFixedNavigation() {
-  const targetElement = document.querySelector('.js-headerShowLine');
-  const getTargetPositionY = () => {
-    const { scrollY } = window;
-    return scrollY + targetElement.getBoundingClientRect().top;
-  };
-
-  const fixedNavigation = new FixedNavigation({
-    element: document.querySelector('.js-Header'),
-    threshold: getTargetPositionY(),
-  });
-
-  window.addEventListener('resize', () => {
-    fixedNavigation.setThreshold(getTargetPositionY());
-  });
-}
-
 function main() {
-  setFixedNavigation();
   setSlideShow();
+  setParallax();
 }
 
 window.addEventListener('DOMContentLoaded', main);

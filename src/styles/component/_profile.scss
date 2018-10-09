@@ -76,7 +76,8 @@
     font-size: $font-size-small-normal-screen;
 
     @include isScreen('sm') {
-      justify-content: center;
+      display: block;
+      text-align: center;
     }
   }
 
@@ -87,6 +88,21 @@
       display: inline-block;
       margin-left: $spacing-normal;
       content: '/';
+
+      @include isScreen('sm') {
+        margin-left: $spacing-small;
+      }
+    }
+
+    @include isScreen('sm') {
+      margin-right: 0;
+    }
+  }
+
+  &__position,
+  &__profession {
+    @include isScreen('sm') {
+      display: inline;
     }
   }
 

@@ -1,6 +1,7 @@
 import Parallax from './class/parallax';
+import FixedNavigation from './class/fixedNavigation';
 
-function main() {
+function setParallax() {
   Array.from(document.querySelectorAll('.js-Parallax')).map(element => new Parallax({
     element: element.querySelector('.js-Parallax__inner'),
     baseElement: element,
@@ -9,6 +10,40 @@ function main() {
     isWindowMode: true,
     speed: 3.5,
   }).init());
+}
+
+function setFixedNavigation() {
+  const targetElement = document.querySelector('.js-headerShowLine');
+
+  if (targetElement) {
+    const getTargetPositionY = () => {
+      const { scrollY } = window;
+      return scrollY + targetElement.getBoundingClientRect().top;
+    };
+
+    const fixedNavigation = new FixedNavigation({
+      element: document.querySelector('.js-Header'),
+      threshold: getTargetPositionY(),
+    });
+
+    window.addEventListener('resize', () => {
+      fixedNavigation.setThreshold(getTargetPositionY());
+      fixedNavigation.update();
+    });
+
+    fixedNavigation.update();
+  } else {
+    const fixedNavigation = new FixedNavigation({
+      element: document.querySelector('.js-Header'),
+      threshold: 0,
+    });
+    if (!window.location.hash.match('#')) fixedNavigation.update();
+  }
+}
+
+function main() {
+  setParallax();
+  setFixedNavigation();
 }
 
 function onLoad() {

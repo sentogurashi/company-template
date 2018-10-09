@@ -52,6 +52,10 @@ export default class Parallax {
     if (!this.fixedMaxDistance) this.maxDistance = window.innerHeight;
   }
 
+  setEffect(key, value) {
+    this.effect[key] = value;
+  }
+
   update() {
     const {
       element, baseElement, effect, isWindowMode, maxDistance,

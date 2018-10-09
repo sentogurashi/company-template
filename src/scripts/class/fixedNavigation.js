@@ -4,16 +4,16 @@ export default class FixedNavigation {
     this.fixedClassName = 'is-show';
     this.setThreshold(threshold);
     this.watch();
-    this.update();
   }
 
   watch() {
-    window.addEventListener('scroll', this.update.bind(this));
+    setTimeout(() => {
+      window.addEventListener('scroll', this.update.bind(this));
+    }, 1000);
   }
 
   setThreshold(threshold) {
     this.threshold = threshold;
-    this.update();
   }
 
   update() {

@@ -31,8 +31,8 @@ const contentHisotry = findContentById('history');
     <!-- /.TopHero__mainContent -->
   </div>
   <!-- /.TopHero__main -->
-  <div class="TopHero__sub js-Parallax">
-    <ul class="TopHero__cover js-TopHero__cover  js-Parallax__inner">
+  <div class="TopHero__sub js-TopParallax">
+    <ul class="TopHero__cover js-TopHero__cover  js-TopParallax__inner">
       <% [...Array(3)].forEach((_, index) => { %>
       <li class="TopHero__image js-TopHero__image">
         <div class="TopHero__imageInner" style="background-image:url('/dest/images/top/hero_<%= index + 1 %>.jpg')"></div>
@@ -66,6 +66,13 @@ const contentHisotry = findContentById('history');
     <!-- /.Article__body -->
   </article>
   <!-- /.Article -->
+  <%- include('./_include/_component/_button', {
+    setting: {
+      label: contentMain.button.label,
+      link: contentMain.button.link,
+      classNames: ['Module__button'],
+    }
+  }) %>
 </section>
 <!-- /.Module -->
 
@@ -81,8 +88,8 @@ const contentHisotry = findContentById('history');
       <% projectdata.forEach((project) => { %>
         <li class="GridList__item">
           <a class="Cell" href="/project/<%= project.id %>/">
-            <div class="Cell__thumbnail" style="background-image:url('/dest/images/project/<%= project.id %>/hero.jpg')"></div>
-            <p class="Cell__title"><%= project.title %></p>
+            <div class="Cell__thumbnail" style="background-image:url('/dest/images/project/<%= project.id %>/thumbnail.jpg')"></div>
+            <p class="Cell__title"><%= project.title.replace(/\n/g, ''); %></p>
           </a>
         </li>
       <% }); %>

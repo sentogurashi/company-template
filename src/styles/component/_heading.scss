@@ -2,6 +2,12 @@
   @include baseHeading;
 
   &--horizontal {
+    @include isScreen('sm') {
+      br {
+        display: none;
+      }
+    }
+
     margin-bottom: $spacing-XXXLarge;
     text-align: center;
   }

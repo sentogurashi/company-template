@@ -81,6 +81,7 @@
     "script": "gulp script",
     "generate": "gulp generate",
     "style": "gulp style",
+    "image": "gulp image",
     "sketch": "gulp sketch",
     "build": "gulp build",
     "deploy:surge": "surge build/",

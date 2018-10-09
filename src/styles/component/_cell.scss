@@ -12,6 +12,7 @@
 
     position: relative;
     margin: $spacing-normal 0;
+    padding-right: $spacing-large;
     font-size: $font-size-large-normal-screen;
 
     @include isScreen('sm') {
@@ -25,8 +26,8 @@
       display: block;
       width: 7px;
       height: 13px;
-      content: '';
       transform: translateY(-50%);
+      content: '';
 
       @include vectorImage('common/ico_arrow_next');
     }
@@ -36,7 +37,7 @@
     @include baseFontWeak;
 
     margin: $spacing-normal 0;
-    font-size: $font-size-small-normal-screen;
+    font-size: $font-size-XSmall-normal-screen;
     line-height: $line-height-base;
   }
 }
