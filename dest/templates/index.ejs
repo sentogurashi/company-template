@@ -1,0 +1,189 @@
+<%# declaration %>
+<%
+const findContentById = id => pageInfo.content.find(content => content.id === id);
+const contentMain = findContentById('main');
+const contentProject = findContentById('project');
+const contentMember = findContentById('member');
+const contentHisotry = findContentById('history');
+%>
+<%# /declaration %>
+<%# insertContent %>
+<% function insertContent(__output) { %>
+<div class="TopHero">
+  <div class="TopHero__main">
+    <div class="TopHero__mainContent">
+      <div class="TopHero__vi">
+        <div class="TopHero__viLogo"></div>
+        <div class="TopHero__viType"></div>
+      </div>
+      <nav class="TopHero__navigation">
+        <ul class="TopHero__navigationList">
+          <% sitedata.common.layout.navigation.forEach((item) => { %>
+          <li class="TopHero__navigationItem">
+            <a href="<%= item.path %>">
+              <%= item.text %></a>
+          </li>
+          <% }); %>
+        </ul>
+      </nav>
+    </div>
+    <!-- /.TopHero__mainContent -->
+  </div>
+  <!-- /.TopHero__main -->
+  <div class="TopHero__sub js-TopParallax">
+    <ul class="TopHero__cover js-TopHero__cover  js-TopParallax__inner">
+      <% [...Array(3)].forEach((_, index) => { %>
+      <li class="TopHero__image js-TopHero__image">
+        <div class="TopHero__imageInner" style="background-image:url('/dest/images/top/hero_<%= index + 1 %>.jpg')"></div>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+</div>
+<!-- /.TopHero -->
+<section class="Module Module--top">
+  <article class="Article Article Article--withColumn">
+    <div class="Article__headingContainer">
+      <%- include('./_include/_component/_heading', {
+        setting: {
+          text: contentMain.heading,
+          isVertical: true,
+          classNames: ['Module__heading Article__heading'],
+        }
+      }) %>
+    </div>
+    <!-- /.Article__headingContainer -->
+    <div class="Article__body">
+      <%- include('./_include/_component/_text', {
+        setting: {
+          text: contentMain.text,
+          ignoreBreakInSp: true,
+        }
+      }) %>
+    </div>
+    <!-- /.Article__body -->
+  </article>
+  <!-- /.Article -->
+  <%- include('./_include/_component/_button', {
+    setting: {
+      label: contentMain.button.label,
+      link: contentMain.button.link,
+      classNames: ['Module__button'],
+    }
+  }) %>
+</section>
+<!-- /.Module -->
+<section class="Module js-headerShowLine" id="project">
+  <%- include('./_include/_component/_heading', {
+    setting: {
+      text: contentProject.heading,
+      classNames: ['Module__heading'],
+    }
+  }) %>
+  <div class="Module__gridListContainer">
+    <ul class="GridList GridList--large">
+      <% projectdata.forEach((project) => { %>
+      <li class="GridList__item">
+        <a class="Cell" href="/project/<%= project.id %>/">
+          <div class="Cell__thumbnail" style="background-image:url('/dest/images/project/<%= project.id %>/thumbnail.jpg')"></div>
+          <p class="Cell__title">
+            <%= project.title.replace(/\n/g, ''); %>
+          </p>
+        </a>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <!-- /.Module__gridListContaier -->
+</section>
+<!-- /.Module -->
+<section class="Module">
+  <%- include('./_include/_component/_heading', {
+    setting: {
+      text:  contentMember.heading,
+      classNames: ['Module__heading'],
+    }
+  }) %>
+  <div class="Module__gridListContainer">
+    <ul class="GridList GridList--small">
+      <% memberdata.slice(0, 8).forEach((profile) => { %>
+      <li class="GridList__item">
+        <a class="Profile Profile--vertical" href="/member/#<%= profile.name_id %>">
+          <div class="Profile__photo" style="background-image:url('/dest/images/member/<%= profile.name_id %>.jpg')"></div>
+          <p class="Profile__name">
+            <%= profile.name_jp %>
+          </p>
+          <div class="Profile__title">
+            <% if (profile.position) { %>
+            <p class="Profile__position">
+              <%= profile.position %>
+            </p>
+            <% } %>
+            <% if (profile.profession) { %>
+            <p class="Profile__profession">
+              <%= profile.profession %>
+            </p>
+            <% } %>
+          </div>
+        </a>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <!-- /.Module__gridListContaier -->
+  <%- include('./_include/_component/_button', {
+    setting: {
+      label: contentMember.button.label,
+      link: contentMember.button.link,
+      classNames: ['Module__button'],
+    }
+  }) %>
+</section>
+<!-- /.Module -->
+<section class="Module">
+  <article class="Article Article--horizontal">
+    <div class="Article__headingContainer">
+      <%- include('./_include/_component/_heading', {
+        setting: {
+          text:  findContentById('history').heading,
+          classNames: ['Module__heading Article__heading'],
+        }
+      }) %>
+    </div>
+    <!-- /.Article__heading -->
+    <div class="Article__image">
+      <div class="Article__imageInner" style="background-image:url('/dest/images/top/history.png')"></div>
+    </div>
+    <div class="Article__body">
+      <%- include('./_include/_component/_text', {
+        setting: {
+          text: sitedata
+          .pages
+          .find(pageInfo => pageInfo.id === 'history')
+          .content
+          .find(content => content.id === 'main')
+          .text
+          .split('\n\n')
+          .slice(0, 2) // 2段落分
+          .join('\n\n'),
+          classNames: ['Module__text'],
+        }
+      }) %>
+    </div>
+    <!-- /.Article__body -->
+  </article>
+  <!-- /.Article -->
+  <%- include('./_include/_component/_button', {
+    setting: {
+      label: 'さらに詳しく',
+      link: '/history/',
+      classNames: ['Module__button'],
+    }
+  }) %>
+</section>
+<!-- /.Module -->
+<% } %>
+<%# /insertContent %>
+<%# extend %>
+<%- include ./_include/_layout/_base %>
+<%# /extend %>

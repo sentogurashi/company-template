@@ -84,7 +84,7 @@
     "image": "gulp image",
     "sketch": "gulp sketch",
     "build": "gulp build",
-    "deploy:surge": "surge build/",
+    "deploy:surge": "gulp deploySurge",
     "watch": "gulp watch"
   }
 }

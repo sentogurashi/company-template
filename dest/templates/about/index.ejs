@@ -4,10 +4,8 @@ const findContentById = id => pageInfo.content.find(content => content.id === id
 const content = findContentById('main');
 %>
 <%# /declaration %>
-
 <%# insertContent %>
 <% function insertContent(__output) { %>
-
 <section class="Module Module--top">
   <article class="Article Article--withColumn">
     <div class="Article__headingContainer">
@@ -30,10 +28,8 @@ const content = findContentById('main');
     <!-- /.Article__body -->
   </article>
 </section>
-
 <% } %>
 <%# /insertContent %>
-
 <%# extend %>
 <%- include ../_include/_layout/_base %>
 <%# /extend %>

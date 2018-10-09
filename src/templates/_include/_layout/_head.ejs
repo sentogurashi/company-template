@@ -1,9 +1,8 @@
 <% 
-const stripLineBreak = text => text.replace(/\n/g, '　');
 const isProjectPage = pageInfo.id === 'project';
-const baseTitle = isProjectPage ? stripLineBreak(projectInfo.title) : pageInfo.title;
+const baseTitle = (isProjectPage ? projectInfo.title : pageInfo.title).replace(/\n/g, '');
 const title = isTop ? baseTitle : `${baseTitle} - 銭湯ぐらし`;
-const description = isProjectPage ? stripLineBreak(projectInfo.text) : stripLineBreak(pageInfo.content.find(content => content.id === 'main').text);
+const description = (isProjectPage ? projectInfo.text : pageInfo.content.find(content => content.id === 'main').text).replace(/\n/g, '　').replace(/<.+?>/g, '');
 const path = isProjectPage ? 'project/' + projectInfo.id : pageInfo.id;
 const baseUrl = sitedata.common.info.url;
 const url = isTop ? baseUrl : baseUrl + path +'/';

@@ -1,0 +1,49 @@
+<%# declaration %>
+<%
+const findContentById = id => pageInfo.content.find(content => content.id === id);
+%>
+<%# /declaration %>
+<%# insertContent %>
+<% function insertContent(__output) { %>
+<%- include('../_include/_component/_basicContent', {
+  setting: {
+    content: findContentById('main'),
+    heroImagePath: pageInfo.id,
+  }
+}); %>
+<section class="Module">
+  <ul class="ProfileList">
+    <% memberdata.forEach((profile) => { %>
+    <li class="ProfileList__item Profile Profile--horizontal" id="<%= profile.name_id %>">
+      <div class="Profile__columnSub">
+        <div class="Profile__photo" style="background-image:url('/dest/images/member/<%= profile.name_id %>.jpg')"></div>
+      </div>
+      <dl class="Profile__ColumnMain">
+        <dt class="Profile__name">
+          <%= profile.name_jp %></dt>
+        <dd class="Profile__title">
+          <% if (profile.position) { %>
+          <p class="Profile__position">
+            <%= profile.position %>
+          </p>
+          <% } %>
+          <% if (profile.profession) { %>
+          <p class="Profile__profession">
+            <%= profile.profession %>
+          </p>
+          <% } %>
+        </dd>
+        <dd class="Profile__text">
+          <%= profile.profile %>
+        </dd>
+      </dl>
+    </li>
+    <% }); %>
+  </ul>
+</section>
+<!-- /.Module -->
+<% } %>
+<%# /insertContent %>
+<%# extend %>
+<%- include ../_include/_layout/_base %>
+<%# /extend %>

@@ -21,11 +21,13 @@
 
   &--small {
     grid-template-columns: repeat(auto-fit, 25%);
-    grid-gap: $spacing-XXLarge 0;
-    gap: $spacing-XXLarge 0;
+    grid-gap: $spacing-big-small 0;
+    gap: $spacing-big-small 0;
 
     @include isScreen('sm') {
       grid-template-columns: repeat(auto-fit, 50%);
+      grid-gap: $spacing-XXXLarge 0;
+      gap: $spacing-XXXLarge 0;
     }
   }
 }

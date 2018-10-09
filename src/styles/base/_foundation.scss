@@ -9,6 +9,17 @@ html {
   text-size-adjust: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+em {
+  font-weight: normal;
+}
+
 body {
   font-size: 1.6rem;
   // URLなど折り返し +　禁則 http://tamasally.hatenablog.com/entry/2014/03/13/005428
