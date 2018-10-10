@@ -1,16 +1,47 @@
 <%# declaration %>
 <%
 const findContentById = id => pageInfo.content.find(content => content.id === id);
+const content = findContentById('main');
 %>
 <%# /declaration %>
 <%# insertContent %>
 <% function insertContent(__output) { %>
-<%- include('../_include/_component/_basicContent', {
-  setting: {
-    content: findContentById('main'),
-    heroImagePath: pageInfo.id,
-  }
-}); %>
+<div class="HeroImage js-Parallax">
+  <div class="HeroImage__inner js-Parallax__inner">
+    <div class="HeroImage__image" style="background-image:url('/dest/images/history/hero.jpg')"></div>
+  </div>
+</div>
+<section class="Module Module--top">
+  <article class="Article Article--withColumn">
+    <div class="Article__headingContainer">
+      <%- include('../_include/_component/_heading', {
+        setting: {
+          text: content.heading,
+          isVertical: true,
+          classNames: ['Module__heading Article__heading'],
+        }
+      }) %>
+    </div>
+    <!-- /.Article__headingContainer -->
+    <div class="Article__body">
+      <%- include('../_include/_component/_text', {
+        setting: {
+          text: content.text,
+        }
+      }) %>
+    </div>
+    <!-- /.Article__body -->
+  </article>
+  <%- include('../_include/_component/_button', {
+    setting: {
+      label: content.button.label,
+      link: content.button.link,
+      target: '_blank',
+      textSize: 'small',
+      classNames: ['Module__button'],
+    }
+  }) %>
+</section>
 <% } %>
 <%# /insertContent %>
 <%# extend %>

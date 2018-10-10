@@ -3,6 +3,11 @@ const {
   label = '',
   link = '',
   classNames = [],
+  fontSize = null,
+  target = null,
 } = setting;
+const firstCharacterToUpperCase = str => str.charAt(0).toUpperCase() + str.slice(1);
+const classNameArray = ['Button', ...classNames];
+if (fontSize) classNameArray.push(`Button--fontSize${firstCharacterToUpperCase(fontSize)}`);
 %>
-<a class="<%= ['Button', ...classNames].join(' ') %>" href="<%= link %>"><%= label %></a>
+<a class="<%= classNameArray.join(' ') %>" href="<%= link %>"<%- target ? ` target="${target}"` : ''; %>><%= label %></a>

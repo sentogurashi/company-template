@@ -9,6 +9,16 @@
   box-shadow: $box-shadow-base;
   transition: $transition-hover;
 
+  &--fontSize {
+    &Small {
+      font-size: $font-size-base-normal-screen;
+
+      // @include isScreen('sm') {
+      //   font-size: $font-size-base-small-screen;
+      // }
+    }
+  }
+
   &:hover {
     box-shadow: $box-shadow-spread;
     transform: translate(0, -2px);

@@ -65,6 +65,7 @@
     "SCRIPTS": "scripts",
     "TEMPLATES": "templates",
     "IMAGES": "images",
+    "DOCUMENTS": "documents",
     "SKETCHS": "sketchs"
   },
   "browsers": [

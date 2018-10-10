@@ -4,35 +4,44 @@ const getSocialLink = (id) => socialLinks.find(link => link.id === id);
 const twitterLink = getSocialLink('twitter');
 const facebookLink = getSocialLink('facebook');
 %>
+<div class="Header__underlay js-Header__underlay"></div>
 <header class="Header js-Header">
-  <div class="Header__columnMain">
-    <a class="Header__logo" href="/">
-      <h1>銭湯ぐらし</h1>
-    </a>
-  </div>
-  <div class="Header__columnSub">
-    <nav class="GrobalNavigationPc">
-      <ul class="GrobalNavigationPc__list">
-        <% sitedata.common.layout.navigation.forEach((item) => { %>
-          <li class="GrobalNavigationPc__item">
-            <a href="<%= item.path %>"><%= item.text %></a>
-          </li>
-        <% }); %>
-      </ul>
-    </nav>
-    <ul class="SocialLinks SocialLinks--pc">
-      <li class="SocialLinks__item SocialLinks__item--twitter"><a href="<%= twitterLink.url %>" target="_blank"><%= twitterLink.id %></a></li>
-      <li class="SocialLinks__item SocialLinks__item--facebook"><a href="<%= facebookLink.url %>" target="_blank"><%= facebookLink.id %></a></li>
+  <nav class="GlobalNavigationSp js-GlobalNavigationSp">
+  <div class="GlobalNavigationSp__content">
+    <ul class="GlobalNavigationSp__list">
+      <% sitedata.common.layout.navigation.forEach((item) => { %>
+        <li class="GlobalNavigationSp__item">
+          <a href="<%= item.path %>"><%= item.text %></a>
+        </li>
+      <% }); %>
     </ul>
-    <div class="GrobalNavigationSp__trigger js-GrobalNavigationSp__trigger"></div>
+  </div>
+  </nav>
+  <div class="Header__inner">
+    <div class="Header__columnMain">
+      <a class="Header__logo" href="/">
+        <h1>銭湯ぐらし</h1>
+      </a>
+    </div>
+    <div class="Header__columnSub">
+      <nav class="GlobalNavigationPc">
+        <ul class="GlobalNavigationPc__list">
+          <% sitedata.common.layout.navigation.forEach((item) => { %>
+            <li class="GlobalNavigationPc__item">
+              <a href="<%= item.path %>"><%= item.text %></a>
+            </li>
+          <% }); %>
+        </ul>
+      </nav>
+      <ul class="SocialLinks SocialLinks--pc">
+        <li class="SocialLinks__item SocialLinks__item--twitter"><a href="<%= twitterLink.url %>" target="_blank"><%= twitterLink.id %></a></li>
+        <li class="SocialLinks__item SocialLinks__item--facebook"><a href="<%= facebookLink.url %>" target="_blank"><%= facebookLink.id %></a></li>
+      </ul>
+      <ul class="GlobalNavigationSp__trigger js-GlobalNavigationSp__trigger">
+        <li class="GlobalNavigationSp__triggerBorder"></li>
+        <li class="GlobalNavigationSp__triggerBorder"></li>
+        <li class="GlobalNavigationSp__triggerBorder"></li>
+      </ul>
+    </div>
   </div>
 </header>
-<nav class="GrobalNavigationSp js-GrobalNavigationSp">
-  <ul class="GrobalNavigationSp__list">
-    <% sitedata.common.layout.navigation.forEach((item) => { %>
-      <li class="GrobalNavigationSp__item">
-        <a href="<%= item.path %>"><%= item.text %></a>
-      </li>
-    <% }); %>
-  </ul>
-</nav>

@@ -24,6 +24,21 @@ function insertContact() {
   });
 }
 
+function setSpMenu() {
+  const triggeElement = document.querySelector('.js-GlobalNavigationSp__trigger');
+  const containerElement = document.querySelector('.js-GlobalNavigationSp');
+  const underlayElement = document.querySelector('.js-Header__underlay');
+
+  const toggle = () => {
+    triggeElement.classList.toggle('is-active');
+    containerElement.classList.toggle('is-show');
+    underlayElement.classList.toggle('is-show');
+  };
+
+  triggeElement.addEventListener('click', toggle);
+  underlayElement.addEventListener('click', toggle);
+}
+
 function setFixedNavigation() {
   const targetElement = document.querySelector('.js-headerShowLine');
 
@@ -53,13 +68,7 @@ function setFixedNavigation() {
   }
 }
 
-function main() {
-  setParallax();
-  setFixedNavigation();
-  insertContact();
-}
-
-function onLoad() {
+function pageStart() {
   const loadingView = document.querySelector('.js-LoadingView');
   loadingView.addEventListener('transitionend', () => {
     loadingView.parentElement.removeChild(loadingView);
@@ -67,6 +76,24 @@ function onLoad() {
   loadingView.classList.add('is-fade');
 }
 
+function setloadTimeout() {
+  window.setTimeout(() => {
+    const loadingView = document.querySelector('.js-LoadingView');
+    if (loadingView) {
+      console.log('force start');
+      pageStart();
+    }
+  }, 5000);
+}
+
+function main() {
+  setParallax();
+  setFixedNavigation();
+  setSpMenu();
+  insertContact();
+  setloadTimeout();
+}
+
 window.addEventListener('DOMContentLoaded', main);
 
-window.addEventListener('load', onLoad);
+window.addEventListener('load', pageStart);

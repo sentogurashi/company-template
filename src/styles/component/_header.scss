@@ -1,11 +1,11 @@
+$logo-pc-size: 60px;
+$logo-sp-size: 40px;
+
 .Header {
   position: fixed;
   top: 0;
   left: 0;
   z-index: $layer-header;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   padding: $spacing-normal $spacing-large;
   background-color: $color-header-background;
@@ -20,25 +20,54 @@
   }
 
   @include isScreen('sm') {
-    padding: $spacing-normal;
+    padding: $spacing-normal $spacing-large;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include isScreen('sm') {
+      // position: relative;
+      height: $logo-sp-size;
+    }
   }
 
   &__logo {
     display: block;
-    width: 60px;
-    height: 60px;
+    width: $logo-pc-size;
+    height: $logo-pc-size;
 
     @include vectorImage('common/vi_logo');
 
     @include isScreen('sm') {
-      width: 40px;
-      height: 40px;
+      position: absolute;
+      top: $spacing-normal;
+      left: $spacing-large;
+      width: $logo-sp-size;
+      height: $logo-sp-size;
     }
   }
 
   &__column {
     &Sub {
       display: flex;
+    }
+  }
+
+  &__underlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $layer-underlay;
+    display: none;
+    width: 100%;
+    height: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &.is-show {
+      display: block;
     }
   }
 }

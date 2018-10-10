@@ -30,6 +30,7 @@
     @include isScreen('sm') {
       width: 100%;
       max-width: 300px;
+      margin: $spacing-XXLarge auto $spacing-big-normal;
     }
   }
 
