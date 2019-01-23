@@ -1,0 +1,7 @@
+@mixin responsiveWrapper {
+  width: $width-responsive-wrapper-normal;
+
+  @include isScreen('md') {
+    width: $width-responsive-wrapper-narrow;
+  }
+}

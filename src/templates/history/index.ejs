@@ -1,7 +1,8 @@
 <%# declaration %>
 <%
 const findContentById = id => pageInfo.content.find(content => content.id === id);
-const content = findContentById('main');
+const contentMain = findContentById('main');
+const contentMore = findContentById('more');
 %>
 <%# /declaration %>
 
@@ -18,7 +19,7 @@ const content = findContentById('main');
     <div class="Article__headingContainer">
       <%- include('../_include/_component/_heading', {
         setting: {
-          text: content.heading,
+          text: contentMain.heading,
           isVertical: true,
           classNames: ['Module__heading Article__heading'],
         }
@@ -28,22 +29,37 @@ const content = findContentById('main');
     <div class="Article__body">
       <%- include('../_include/_component/_text', {
         setting: {
-          text: content.text,
+          text: contentMain.text,
         }
       }) %>
     </div>
     <!-- /.Article__body -->
   </article>
-  <%- include('../_include/_component/_button', {
-    setting: {
-      label: content.button.label,
-      link: content.button.link,
-      target: '_blank',
-      fontSize: 'small',
-      classNames: ['Module__button'],
-    }
-  }) %>
 </section>
+<!-- /.Module -->
+
+<section class="Module">
+<%- include('../_include/_component/_heading', {
+  setting: {
+    text: contentMore.heading,
+    classNames: ['Module__heading Article__heading'],
+  }
+}) %>
+<div class="Module__gridListContainer">
+  <ul class="GridList GridList--large">
+    <% contentMore.list.forEach((info) => { %>
+      <li class="GridList__item">
+        <a class="Cell" href="<%= info.link %>">
+          <div class="Cell__thumbnail" style="background-image:url('/dest/images/history/<%= info.image %>.jpg')"></div>
+          <p class="Cell__title"><%= info.title; %></p>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+</div>
+<!-- /.Module__gridListContaier -->
+</section>
+<!-- /.Module -->
 
 <% } %>
 <%# /insertContent %>

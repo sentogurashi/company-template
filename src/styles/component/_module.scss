@@ -1,8 +1,14 @@
 .Module {
   margin-bottom: $spacing-big-middle;
+  padding: 0 $spacing-XXLarge;
 
   @include isScreen('sm') {
     margin-bottom: $spacing-big-small;
+    padding: 0 $spacing-XLarge;
+
+    .Module__gridListContainer {
+      width: auto;
+    }
   }
 
   &--top {
@@ -14,7 +20,8 @@
   }
 
   &__gridListContainer {
-    width: $width-responsive-wrapper;
+    @include responsiveWrapper;
+
     max-width: $width-max-responsive-wrapper;
     margin: 0 auto;
   }
@@ -35,7 +42,7 @@
   }
 
   &__horizontalList {
-    max-width: $width-responsive-wrapper;
+    max-width: $width-responsive-wrapper-normal;
     margin: $spacing-XXLarge auto;
     text-align: center;
 
@@ -63,15 +70,6 @@
           margin-right: 0;
         }
       }
-    }
-  }
-
-  @include isScreen('sm') {
-    margin-right: $spacing-large;
-    margin-left: $spacing-large;
-
-    .Module__gridListContainer {
-      width: auto;
     }
   }
 }

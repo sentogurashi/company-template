@@ -51,6 +51,11 @@ $logo-sp-size: 40px;
   }
 
   &__column {
+    &Main {
+      flex-shrink: 0;
+      margin-right: $spacing-XLarge;
+    }
+
     &Sub {
       display: flex;
     }

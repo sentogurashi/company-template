@@ -10,15 +10,13 @@ import sketch from './tasks/sketch';
 import build from './tasks/build';
 import clean from './tasks/clean';
 import watch from './tasks/watch';
-// import deploy, { deploySurge } from './tasks/deploy';
-import { deploySurge } from './tasks/deploy';
+import deploy, { deploySurge, deployToProd } from './tasks/deploy';
 
-const deploy = {}; // TODO
+const generate = gulp.series(clean, image, script, style, yaml, template, document);
+const build2 = gulp.series(generate, build);
 
 export {
-  image, script, style, csv, yaml, template, document, sketch, build, clean, watch, deploy, deploySurge,
+  image, script, style, csv, yaml, template, document, sketch, generate, build, build2, clean, watch, deploy, deploySurge, deployToProd,
 };
-
-export const generate = gulp.series(clean, image, script, style, yaml, template, document);
 
 export default gulp.series(generate, watch);

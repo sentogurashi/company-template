@@ -35,6 +35,10 @@
       left: 10%;
       transform: translateY(-50%);
 
+      @include isScreen('md') {
+        left: 5%;
+      }
+
       @include isScreen('sm') {
         position: relative;
         top: 0;

@@ -5,7 +5,10 @@
     @include imageHolder;
 
     padding-bottom: $size-normal-thumbnail;
-    border-radius: 8px;
+
+    a.Cell & {
+      border-radius: 8px;
+    }
   }
 
   &__title {

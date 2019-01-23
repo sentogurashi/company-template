@@ -11,7 +11,7 @@ const FILENAME = {
   MEMBER: 'member.json',
 };
 
-const DATA_PATH = `${PATH.DATA}/dest/`;
+const DATA_PATH = `${PATH.DATA}dest/`;
 
 const $ = gulpLoadPlugins();
 const readJsonSync = path => JSON.parse(fs.readFileSync(path, 'utf-8'));
@@ -83,7 +83,7 @@ const templateProject = (done) => {
         }),
       )
       .pipe($.htmlhint())
-      // .pipe($.htmlhint.reporter())
+      .pipe($.htmlhint.reporter())
       .pipe(gulp.dest(`${PATH.DEST + PATH.TEMPLATES}/project/${projectInfo.id}`));
   });
 

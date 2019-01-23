@@ -26,9 +26,17 @@ const buildHTML = (done) => {
 
 const buildAssets = (done) => {
   gulp
-    .src([`${PATH.DEST + PATH.STYLES}/**/*`, `${PATH.DEST + PATH.SCRIPTS}/**/*`, `${PATH.DEST + PATH.IMAGES}/**/*`], {
-      base: PATH.DEST,
-    })
+    .src(
+      [
+        `${PATH.DEST + PATH.STYLES}/**/*`,
+        `${PATH.DEST + PATH.SCRIPTS}/**/*`,
+        `${PATH.DEST + PATH.IMAGES}/**/*`,
+        `${PATH.DEST + PATH.DOCUMENTS}/**/*`,
+      ],
+      {
+        base: PATH.DEST,
+      },
+    )
     .pipe(gulp.dest(`${PATH.BUILD}/assets`));
   done();
 };
