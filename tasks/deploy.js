@@ -15,14 +15,12 @@ const { path: PATH } = pkg;
 // const $ = gulpLoadPlugins();
 
 const deployToProd = (done) => {
-  const connet = ftp.create(
+  const connect = ftp.create(
     Object.assign(ftpConfig, {
       parallel: 5,
       log: logger,
     }),
   );
-
-  console.log(connet.newer);
 
   return (
     gulp
@@ -31,9 +29,9 @@ const deployToProd = (done) => {
         buffer: false,
       })
       // リモートのパス（~新しければ）
-      .pipe(connet.newer('/'))
+      .pipe(connect.newer('/'))
       // リモートのパス（置き場所）
-      .pipe(connet.dest('/'))
+      .pipe(connect.dest('/'))
   );
 };
 
