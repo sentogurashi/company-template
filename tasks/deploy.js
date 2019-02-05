@@ -6,15 +6,12 @@ import ftp from 'vinyl-ftp';
 import logger from 'fancy-log';
 import build from './build';
 import ftpConfig from '../ftp_config.json';
-import pkg from '../package.json';
 
 const { exec } = childProcess;
 
-const { path: PATH } = pkg;
-
 // const $ = gulpLoadPlugins();
 
-const deployToProd = (done) => {
+const deployToProd = () => {
   const connect = ftp.create(
     Object.assign(ftpConfig, {
       parallel: 5,
@@ -33,6 +30,8 @@ const deployToProd = (done) => {
       // リモートのパス（置き場所）
       .pipe(connect.dest('/'))
   );
+
+  // done();
 };
 
 const deployToSurge = (done) => {

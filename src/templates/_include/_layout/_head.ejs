@@ -5,6 +5,7 @@ const title = isTop ? baseTitle : `${baseTitle} - 銭湯ぐらし`;
 const description = (isProjectPage ? projectInfo.text : pageInfo.content.find(content => content.id === 'main').text).replace(/\n/g, '　').replace(/<.+?>/g, '');
 const path = isProjectPage ? 'project/' + projectInfo.id : pageInfo.id;
 const baseUrl = sitedata.common.info.url;
+const staticVersion = sitedata.common.info.version;
 const url = isTop ? baseUrl : baseUrl + path +'/';
 const assetsUrl = `${baseUrl}assets/images/`;
 const ogImage = isTop ? `${assetsUrl}top/og.jpg` : `${assetsUrl + path}/hero.jpg`;
@@ -33,9 +34,9 @@ const ogImage = isTop ? `${assetsUrl}top/og.jpg` : `${assetsUrl + path}/hero.jpg
 <meta property="og:type" content="article"/>
 <% } %>
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/hannari.css">
-<link rel="stylesheet" href="/dest/styles/main.css">
-<script src="/dest/scripts/common.bundle.js"></script>
+<link rel="stylesheet" href="/dest/styles/main.css?v=<%= staticVersion %>">
+<script src="/dest/scripts/common.bundle.js?v=<%= staticVersion %>"></script>
 <% if(isTop) { %>
-<script src="/dest/scripts/top.bundle.js"></script>
+<script src="/dest/scripts/top.bundle.js?v=<%= staticVersion %>"></script>
 <% } %>
 </head>
