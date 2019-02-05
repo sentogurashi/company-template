@@ -1,7 +1,7 @@
 siteTitle: 銭湯ぐらし
 common:
   info:
-    version: 2.1
+    version: 2.2
     url: http://www.sentogurashi.com/
     socialLinks:
       - id: twitter
@@ -24,7 +24,7 @@ common:
         path: /history
 
     footer:
-      text: © 2018 Sentogurashi,inc
+      text: © 2019 Sentogurashi,inc
 
 pages:
   - id: top
