@@ -17,7 +17,7 @@
     position: relative;
     margin: $spacing-normal 0;
     padding-right: $spacing-large;
-    font-size: $font-size-large-normal-screen;
+    font-size: $font-size-middle-normal-screen;
 
     @include isScreen('sm') {
       font-size: $font-size-large-small-screen;
