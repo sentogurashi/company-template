@@ -64,6 +64,14 @@
           }
         },
         {
+          "id": "article",
+          "heading": "読みもの",
+          "button": {
+            "label": "もっと読む",
+            "link": "/article/"
+          }
+        },
+        {
           "id": "project",
           "heading": "私たちにできること"
         },

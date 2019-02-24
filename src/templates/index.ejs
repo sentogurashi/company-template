@@ -2,6 +2,7 @@
 <%
 const findContentById = id => pageInfo.content.find(content => content.id === id);
 const contentMain = findContentById('main');
+const contentArticle = findContentById('article');
 const contentProject = findContentById('project');
 const contentMember = findContentById('member');
 const contentHisotry = findContentById('history');
@@ -73,6 +74,61 @@ const contentHisotry = findContentById('history');
       classNames: ['Module__button'],
     }
   }) %>
+</section>
+<!-- /.Module -->
+
+
+<section class="Module">
+<div class="Article__headingContainer">
+<%- include('./_include/_component/_heading', {
+  setting: {
+    text: contentArticle.heading,
+    classNames: ['Module__heading Article__heading'],
+  }
+}) %>
+</div>
+
+<div class="Module__gridListContainer">
+<ul class="GridList GridList--large">
+<?php
+
+$filePath = dirname( __FILE__);
+$wpLoadPath = $filePath . '/article/wp-load.php';
+
+require_once($wpLoadPath);
+$the_query = new WP_Query(['posts_per_page' => 2]);
+if($the_query->have_posts()):
+  while($the_query->have_posts()):
+     $the_query->the_post(); ?>
+     <li class="GridList__item">
+       <a class="Cell" href="<?php the_permalink(); ?>">
+         <?php if (has_post_thumbnail()) { ?>
+         <div class="Cell__thumbnail" style="background-image:url('<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail')[0] ?>')"></div>
+         <?php } else { ?>
+         <div class="Cell__thumbNail Cell__thumbNail--noImage"></div>
+         <?php } ?>
+         <div class="Cell__main">
+           <!--<?php get_categories_label(false, 'Cell__category') ?>-->
+           <p class="Cell__title"><?php the_title(); ?></p>
+           <p class="Cell__date"><?php echo get_the_date();?></p>
+         </div>
+       </a>
+       <!--<?php the_tags( '<ul class="Cell__tags"><li>', '</li><li>', '</li></ul>' ); ?>-->
+     </li>
+<?php
+  endwhile;
+endif; ?>
+  </ul>
+</div>
+
+<%- include('./_include/_component/_button', {
+  setting: {
+    label: contentArticle.button.label,
+    link: contentArticle.button.link,
+    classNames: ['Module__button'],
+  }
+}) %>
+
 </section>
 <!-- /.Module -->
 
