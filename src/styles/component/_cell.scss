@@ -11,6 +11,10 @@
     }
   }
 
+  &__date {
+    color: $color-text-base;
+  }
+
   &__title {
     @include baseFontDisplay;
 

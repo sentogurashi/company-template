@@ -14,5 +14,9 @@
 
   &--vertical {
     @include verticalWriting;
+
+    @include isScreen('sm') {
+      margin: 0 auto;
+    }
   }
 }
